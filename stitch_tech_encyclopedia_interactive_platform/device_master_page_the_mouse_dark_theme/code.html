@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Computer Mouse - HardwareLab</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "background": "#0B1220",
+                      "surface": "#111827",
+                      "on-background": "#E5E7EB",
+                      "on-surface": "#E5E7EB",
+                      "primary": "#6366F1",
+                      "secondary": "#22D3EE",
+                      "outline-variant": "#374151",
+                      "surface-variant": "#1F2937",
+                      "on-surface-variant": "#9CA3AF"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "16px",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "stack-md": "24px",
+                      "margin-mobile": "20px",
+                      "stack-lg": "48px",
+                      "container-max": "1280px",
+                      "unit": "4px",
+                      "stack-sm": "12px",
+                      "gutter": "24px",
+                      "margin-desktop": "48px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Inter"],
+                      "label-caps": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "body-md": ["Inter"],
+                      "display-lg": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "technical-sm": ["Inter"],
+                      "headline-lg-mobile": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "technical-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}]
+              }
+            },
+          }
+        }
+      </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+        }
+        .bento-hover {
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .bento-hover:hover {
+            border-color: #6366F1;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.1);
+        }
+        .interactive-diagram-area {
+            border: 1px dashed #374151;
+            background: repeating-linear-gradient(
+                45deg,
+                rgba(55, 65, 81, 0.1),
+                rgba(55, 65, 81, 0.1) 10px,
+                transparent 10px,
+                transparent 20px
+            );
+        }
+      </style>
+</head>
+<body class="antialiased font-body-md text-body-md">
+<!-- TopNavBar -->
+<nav class="w-full top-0 sticky z-50 bg-surface border-b border-outline-variant flat no shadows">
+<div class="flex justify-between items-center h-16 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="flex items-center gap-2">
+<span aria-hidden="true" class="material-symbols-outlined text-primary text-2xl" data-icon="memory">memory</span>
+<span class="font-headline-md text-headline-md font-bold text-primary">HardwareLab</span>
+</div>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-80" href="#">Home</a>
+<a class="text-primary border-b-2 border-primary pb-1 font-bold font-body-md text-body-md hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-80" href="#">Learn</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-80" href="#">Choose</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-80" href="#">Explore</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-80" href="#">Tools</a>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden lg:flex items-center bg-surface-variant rounded-full px-3 py-1.5 border border-outline-variant focus-within:border-[#6366F1] focus-within:ring-2 focus-within:ring-[#6366F1]/10 transition-all">
+<span aria-hidden="true" class="material-symbols-outlined text-on-surface-variant text-sm mr-2" data-icon="search">search</span>
+<input class="bg-transparent border-none p-0 text-sm focus:ring-0 text-on-surface w-32 placeholder-on-surface-variant" placeholder="Search components..." type="text"/>
+</div>
+<button class="text-primary font-body-md text-body-md hover:text-primary/80 transition-colors duration-200 cursor-pointer active:opacity-80">Sign In</button>
+<button class="bg-primary text-white px-4 py-2 rounded-xl font-label-caps text-label-caps hover:bg-primary/90 transition-colors duration-200 cursor-pointer active:opacity-80">Get Started</button>
+</div>
+</div>
+</nav>
+<div class="flex max-w-container-max mx-auto w-full">
+<!-- SideNavBar -->
+<aside class="hidden md:flex h-screen w-64 left-0 sticky bg-surface flex-col py-stack-md px-4 gap-4 z-40 border-r border-outline-variant">
+<div class="mb-4 px-4">
+<h2 class="font-headline-md text-headline-md text-primary font-bold">Hardware Explorer</h2>
+<p class="font-label-caps text-label-caps text-on-surface-variant mt-1">Technical Mastery</p>
+</div>
+<nav class="flex flex-col gap-2 font-label-caps text-label-caps">
+<a class="flex items-center gap-3 px-4 py-3 bg-primary/10 text-primary font-bold rounded-full transition-all duration-200 ease-in-out cursor-pointer" href="#overview">
+<span aria-hidden="true" class="material-symbols-outlined" data-icon="info" data-weight="fill" style="font-variation-settings: 'FILL' 1;">info</span>
+                    Overview
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-full transition-all duration-200 ease-in-out cursor-pointer" href="#specifications">
+<span aria-hidden="true" class="material-symbols-outlined" data-icon="list_alt">list_alt</span>
+                    Specifications
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-full transition-all duration-200 ease-in-out cursor-pointer" href="#architecture">
+<span aria-hidden="true" class="material-symbols-outlined" data-icon="memory">memory</span>
+                    Architecture
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-full transition-all duration-200 ease-in-out cursor-pointer" href="#performance">
+<span aria-hidden="true" class="material-symbols-outlined" data-icon="speed">speed</span>
+                    Performance
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-full transition-all duration-200 ease-in-out cursor-pointer" href="#market">
+<span aria-hidden="true" class="material-symbols-outlined" data-icon="trending_up">trending_up</span>
+                    Market History
+                </a>
+</nav>
+<div class="mt-auto px-4 pb-4 flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-variant overflow-hidden border border-outline-variant">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A minimalist avatar placeholder icon, simple line art of a person on a dark gray background, corporate modern style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWINDLSPHSQp_effMV5eLf0Xrl1corV6K8yuKFSICQGYttbnnMU3OLBOdGJtpU2yBKO8fbHZOWx-3Es7QYwjAQeywHEOpErRBAaOduMTMdokbvg6RSegeyG1eo2mqQfZAGBggYgzLA9bwJLVhfsl_dgdgz-a9nWQaVor5MoANR9vNRbwGndicooapIs6xtCjOpqeQVeyGOLEdMOa7_GGEAVBeiva06EQlAZjVRE2IC28cLAWxpp5t2d8U7nC10WTIXxb1GagtYIkyN"/>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Profile</span>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 w-full px-margin-mobile md:px-margin-desktop py-stack-lg min-w-0">
+<!-- Hero Section -->
+<header class="mb-stack-lg border-b border-outline-variant pb-stack-md" id="overview">
+<div class="flex items-center gap-2 mb-4">
+<span class="font-label-caps text-label-caps text-on-surface-variant tracking-widest uppercase">Input Devices / Peripherals</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-technical-sm text-technical-sm text-secondary">v.2024.1</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-on-background mb-6">The Computer Mouse</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl leading-relaxed">
+                    A foundational human interface device (HID) translating two-dimensional motion into digital coordinates. Modern iterations utilize advanced optical or laser sensors, offering sub-millimeter precision essential for everything from precise academic modeling to high-frequency competitive operation.
+                </p>
+</header>
+<!-- Bento Grid: Quick Facts & Intro -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-stack-lg">
+<!-- Main Image Card -->
+<div class="md:col-span-8 bg-surface border border-outline-variant rounded-xl overflow-hidden bento-hover">
+<div class="h-64 md:h-full relative bg-surface-variant/50 flex items-center justify-center p-8">
+<img alt="Exploded view of a computer mouse" class="w-full h-full object-contain" data-alt="A highly detailed, top-down photograph of a modern, minimalist computer mouse disassembled into its core structural components, laid out on a dark grid background. Bright, clinical studio lighting highlights the matte textures and internal PCB traces. The aesthetic is corporate modernism and academic rigor, using a dark palette with subtle technical blue accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuADGJhOwSwmRFu7jS8iKB8fXrGmDsIB5mlOla2n0JKMvx31sL_cwIpNFy_632n219G80Rss1xjqiYYvACw4jFVVmDZlNEi1TbVpYGv63Brniim44O3GyAxE3feLT1paYrk0nLraGUJTgw7UhTfpMjwmQoLT1uguVIzU7ReW3Sh7god8JDYAKswdL-yLKDTwQrOBZlhp25wYxAtQTnVNraUKwENFBwPXw9WzPkkERRgmcI3uJuHsEMu-o3GVpAX_Vt892C6JPZ3gVaj3"/>
+<div class="absolute top-4 right-4 bg-surface border border-outline-variant px-3 py-1 rounded-full flex items-center gap-2 shadow-lg">
+<span aria-hidden="true" class="material-symbols-outlined text-[16px] text-secondary" data-icon="360">360</span>
+<span class="font-label-caps text-label-caps text-secondary">Interactive View</span>
+</div>
+</div>
+</div>
+<!-- Quick Facts Widget -->
+<div class="md:col-span-4 flex flex-col gap-gutter">
+<div class="bg-surface border border-outline-variant rounded-xl p-6 bento-hover flex-1">
+<h3 class="font-label-caps text-label-caps text-secondary mb-4 uppercase tracking-wider flex items-center gap-2">
+<span aria-hidden="true" class="material-symbols-outlined text-[16px]" data-icon="dataset">dataset</span>
+                            Technical Baselines
+                        </h3>
+<ul class="space-y-4">
+<li class="flex flex-col">
+<span class="font-body-md text-body-md text-on-surface-variant">Primary Sensor</span>
+<span class="font-technical-sm text-technical-sm text-on-surface">Optical CMOS (Infrared/LED)</span>
+</li>
+<li class="flex flex-col">
+<span class="font-body-md text-body-md text-on-surface-variant">Interface Protocol</span>
+<span class="font-technical-sm text-technical-sm text-on-surface">USB Type-A / C, Bluetooth LE, 2.4GHz RF</span>
+</li>
+<li class="flex flex-col">
+<span class="font-body-md text-body-md text-on-surface-variant">Standard Actuation Force</span>
+<span class="font-technical-sm text-technical-sm text-on-surface">~45g - 65g (Microswitches)</span>
+</li>
+</ul>
+</div>
+<!-- Callout Note -->
+<div class="bg-primary/10 border-l-4 border-primary rounded-r-xl p-4">
+<div class="flex items-start gap-3">
+<span aria-hidden="true" class="material-symbols-outlined text-primary mt-0.5" data-icon="info">info</span>
+<div>
+<p class="font-label-caps text-label-caps text-primary mb-1">Lexical Note</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">The plural "mice" is preferred in hardware literature, though "mouses" is occasionally recognized in strict engineering documentation to differentiate from the rodent.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Architecture Section -->
+<section class="mb-stack-lg" id="architecture">
+<h2 class="font-headline-lg font-headline-lg-mobile md:font-headline-lg text-on-background mb-6 border-b border-outline-variant pb-2 flex items-center gap-3">
+<span aria-hidden="true" class="material-symbols-outlined text-secondary" data-icon="memory">memory</span>
+                    Internal Architecture
+                </h2>
+<div class="bg-surface border border-outline-variant rounded-xl p-6 bento-hover mb-6">
+<p class="font-body-md text-body-md text-on-surface mb-6 max-w-4xl">
+                        A modern optical mouse eschews the mechanical ball mechanism in favor of an optoelectronic sensor array. It operates similarly to a high-speed, low-resolution video camera, continuously capturing surface images and analyzing microscopic texture variations to calculate delta-x and delta-y displacement.
+                    </p>
+<div class="interactive-diagram-area rounded-xl h-96 relative flex items-center justify-center mb-6 overflow-hidden bg-surface-variant/30">
+<!-- Simulated Interactive Diagram -->
+<img alt="Diagram of Optical Mouse Sensor" class="max-h-full max-w-full object-contain p-4" data-alt="A clean, schematic architectural diagram of an optical computer mouse internal workings. It shows an LED light source illuminating a surface, a lens focusing the reflected light onto a CMOS sensor, and a DSP processing the data. The diagram uses technical, thin lines, a monochrome palette with sharp blue highlights to indicate data flow, set against a dark background typical of high-end textbook illustrations." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpJY_ElYMwln-4FV1PF1f2jZ88Fy_omQn-X_hxrystFlEnTxFxtwanW4rW3BaH3w2S2Nd_Q0uvmywZKaB8aFcTzDLEV1p5apKawCXkUw5HR-yNs82AyuyZ_NS18bhzOKsnGKKlMC51qmz2Li0G_LSY0xTqNftcpDDJhRyVdynovMu7XsbGImcwF2I6wr12hI6LGqhBsycWyFcrTd2zafGToK4eFYgVbZfRjAjXnkdfDDXG0AH8Bd7vp1ybO56VqrrgxH7_hL2AMwcw"/>
+<!-- Hover states for diagram -->
+<div class="absolute inset-0 p-8 hidden md:block">
+<div class="absolute top-[20%] left-[30%] w-3 h-3 rounded-full bg-secondary shadow-[0_0_0_4px_rgba(34,211,238,0.2)] cursor-pointer group">
+<div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 bg-surface border border-outline-variant rounded p-3 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10 shadow-lg">
+<p class="font-technical-sm text-technical-sm text-on-surface mb-1">Illumination Source</p>
+<p class="font-body-md text-body-md text-[12px] leading-tight text-on-surface-variant">Typically an LED or Laser emitting at an angle to cast shadows on microscopic surface textures.</p>
+</div>
+</div>
+<div class="absolute top-[50%] left-[50%] w-3 h-3 rounded-full bg-secondary shadow-[0_0_0_4px_rgba(34,211,238,0.2)] cursor-pointer group">
+<div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 bg-surface border border-outline-variant rounded p-3 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10 shadow-lg">
+<p class="font-technical-sm text-technical-sm text-on-surface mb-1">CMOS Sensor &amp; DSP</p>
+<p class="font-body-md text-body-md text-[12px] leading-tight text-on-surface-variant">Captures images at high framerates (e.g., 10,000+ FPS) and calculates vector translation.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="bg-surface border border-outline-variant rounded-xl p-5 bento-hover">
+<span aria-hidden="true" class="material-symbols-outlined text-primary mb-3" data-icon="radio_button_checked">radio_button_checked</span>
+<h4 class="font-headline-md text-[18px] text-on-surface mb-2">Microswitches</h4>
+<p class="font-body-md text-body-md text-sm text-on-surface-variant">Mechanical or optical switches beneath primary buttons, rated for millions of actuations, providing tactile feedback.</p>
+</div>
+<div class="bg-surface border border-outline-variant rounded-xl p-5 bento-hover">
+<span aria-hidden="true" class="material-symbols-outlined text-primary mb-3" data-icon="data_usage">data_usage</span>
+<h4 class="font-headline-md text-[18px] text-on-surface mb-2">Rotary Encoder</h4>
+<p class="font-body-md text-body-md text-sm text-on-surface-variant">Translates the physical rotation of the scroll wheel into digital scrolling events, often featuring tactile "steps".</p>
+</div>
+<div class="bg-surface border border-outline-variant rounded-xl p-5 bento-hover">
+<span aria-hidden="true" class="material-symbols-outlined text-primary mb-3" data-icon="router">router</span>
+<h4 class="font-headline-md text-[18px] text-on-surface mb-2">MCU</h4>
+<p class="font-body-md text-body-md text-sm text-on-surface-variant">The Microcontroller Unit processes sensor data, switch states, and manages USB/Wireless communication protocols.</p>
+</div>
+</div>
+</section>
+<!-- Specifications Explained Section -->
+<section class="mb-stack-lg" id="specifications">
+<h2 class="font-headline-lg font-headline-lg-mobile md:font-headline-lg text-on-background mb-6 border-b border-outline-variant pb-2 flex items-center gap-3">
+<span aria-hidden="true" class="material-symbols-outlined text-secondary" data-icon="tune">tune</span>
+                    Specifications Explained
+                </h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- DPI Card -->
+<div class="bg-surface border border-outline-variant rounded-xl p-6 bento-hover">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-headline-md text-on-surface">DPI / CPI</h3>
+<span class="font-technical-sm text-technical-sm bg-surface-variant px-2 py-1 rounded text-on-surface-variant">Dots/Counts Per Inch</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">
+                            A measure of spatial resolution. It dictates how many pixels the cursor moves on-screen for every inch the mouse physically travels on the desk. Higher DPI signifies higher sensitivity, requiring less physical movement for screen traversal.
+                        </p>
+<div class="bg-surface-variant/50 p-4 rounded-xl border border-outline-variant">
+<p class="font-technical-sm text-technical-sm text-secondary mb-2">Academic Context:</p>
+<p class="font-body-md text-body-md text-sm text-on-surface-variant">While marketed heavily, excessively high DPI (&gt;3200) is rarely utilized in practical or professional scenarios, often leading to reduced precision due to jitter and sensor interpolation.</p>
+</div>
+</div>
+<!-- Polling Rate Card -->
+<div class="bg-surface border border-outline-variant rounded-xl p-6 bento-hover">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-headline-md text-on-surface">Polling Rate</h3>
+<span class="font-technical-sm text-technical-sm bg-surface-variant px-2 py-1 rounded text-on-surface-variant">Hz (Hertz)</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">
+                            The frequency at which the mouse reports its position to the host computer. A polling rate of 1000Hz means the device communicates its status 1,000 times per second, translating to a 1-millisecond delay.
+                        </p>
+<div class="bg-surface-variant/50 p-4 rounded-xl border border-outline-variant">
+<p class="font-technical-sm text-technical-sm text-secondary mb-2">Technical Implication:</p>
+<p class="font-body-md text-body-md text-sm text-on-surface-variant">Higher polling rates reduce input latency but increase CPU utilization. Modern high-performance variants offer up to 4000Hz or 8000Hz, demanding significant processing overhead.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Market/History Section (Table Layout for Data density) -->
+<section class="mb-stack-lg" id="market">
+<h2 class="font-headline-lg font-headline-lg-mobile md:font-headline-lg text-on-background mb-6 border-b border-outline-variant pb-2 flex items-center gap-3">
+<span aria-hidden="true" class="material-symbols-outlined text-secondary" data-icon="history">history</span>
+                    Evolutionary Timeline
+                </h2>
+<div class="bg-surface border border-outline-variant rounded-xl overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant bg-surface-variant/50 font-label-caps text-label-caps text-secondary uppercase tracking-wider">
+<th class="p-4 font-semibold w-1/4">Era</th>
+<th class="p-4 font-semibold w-1/4">Key Technology</th>
+<th class="p-4 font-semibold w-1/2">Milestone / Impact</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md text-on-surface">
+<tr class="border-b border-outline-variant hover:bg-surface-variant transition-colors bg-surface">
+<td class="p-4 font-technical-sm text-technical-sm text-on-surface-variant">1964 - 1968</td>
+<td class="p-4 font-semibold">X-Y Position Indicator</td>
+<td class="p-4 text-on-surface-variant">Invented by Douglas Engelbart at SRI. Utilized two perpendicular wheels; wooden shell construction.</td>
+</tr>
+<tr class="border-b border-outline-variant hover:bg-surface-variant transition-colors bg-surface-variant/20">
+<td class="p-4 font-technical-sm text-technical-sm text-on-surface-variant">1970s - 1990s</td>
+<td class="p-4 font-semibold">Optomechanical (Ball)</td>
+<td class="p-4 text-on-surface-variant">A rubber sphere drove internal rollers linked to optical encoders. Prone to mechanical failure via dust accumulation.</td>
+</tr>
+<tr class="border-b border-outline-variant hover:bg-surface-variant transition-colors bg-surface">
+<td class="p-4 font-technical-sm text-technical-sm text-on-surface-variant">Late 1990s</td>
+<td class="p-4 font-semibold">Optical Sensor Adoption</td>
+<td class="p-4 text-on-surface-variant">Introduction of reliable LED-based optical sensors, eliminating mechanical tracking components entirely.</td>
+</tr>
+<tr class="border-b border-outline-variant hover:bg-surface-variant transition-colors bg-surface-variant/20">
+<td class="p-4 font-technical-sm text-technical-sm text-on-surface-variant">2000s - Present</td>
+<td class="p-4 font-semibold">Laser &amp; Low-Latency Wireless</td>
+<td class="p-4 text-on-surface-variant">Laser illumination for tracking on diverse surfaces (e.g., glass). Refinement of 2.4GHz RF to match wired latency paradigms.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</main>
+</div>
+<!-- Footer -->
+<footer class="w-full mt-stack-lg bg-surface border-t border-outline-variant flat no shadows">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-stack-lg max-w-container-max mx-auto">
+<div class="col-span-1 md:col-span-2 mb-6 md:mb-0 flex flex-col gap-4">
+<span class="font-headline-md text-headline-md text-primary font-bold">HardwareLab</span>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm">
+                    A digital laboratory dedicated to the rigorous documentation and exploration of computer hardware architecture and peripherals.
+                </p>
+<p class="font-label-caps text-label-caps text-on-surface-variant mt-auto">
+                    © 2024 HardwareLab. Intellectual property of the digital laboratory.
+                </p>
+</div>
+<div class="col-span-1 flex flex-col gap-3">
+<h4 class="font-label-caps text-label-caps text-secondary uppercase tracking-widest mb-2">Resources</h4>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary underline transition-opacity duration-200" href="#">Knowledge Graph</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary underline transition-opacity duration-200" href="#">Learning Paths</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary underline transition-opacity duration-200" href="#">Technical Glossary</a>
+</div>
+<div class="col-span-1 flex flex-col gap-3">
+<h4 class="font-label-caps text-label-caps text-secondary uppercase tracking-widest mb-2">Platform</h4>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary underline transition-opacity duration-200" href="#">API Access</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary underline transition-opacity duration-200" href="#">Privacy Policy</a>
+</div>
+</div>
+</footer>
+</body></html>

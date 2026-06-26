@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>HardwareLab - Tech Encyclopedia</title>
+  
+  <!-- Tailwind CSS & Plugins via CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  
+  <!-- Google Fonts & Material Symbols -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  
+  <!-- Custom Tailwind Config matching DESIGN.md -->
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            background: "#0B1220",
+            surface: "#111827",
+            "surface-container": "#151b2a",
+            "surface-container-low": "#111827",
+            "surface-container-lowest": "#070e1c",
+            "surface-container-high": "#19202e",
+            "surface-container-highest": "#232a39",
+            "on-background": "#E5E7EB",
+            "on-surface": "#E5E7EB",
+            "on-surface-variant": "#9CA3AF",
+            primary: "#6366F1",
+            "primary-container": "#8083ff",
+            secondary: "#22D3EE",
+            "secondary-container": "#00cbe6",
+            tertiary: "#A855F7",
+            "tertiary-container": "#b76dff",
+            "outline-variant": "#374151",
+            outline: "#4B5563",
+            error: "#ffb4ab",
+            "error-container": "#93000a"
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "1rem",
+            "2xl": "1.5rem",
+            full: "9999px"
+          },
+          spacing: {
+            base: "8px",
+            sm: "8px",
+            md: "16px",
+            lg: "24px",
+            xl: "32px",
+            xxl: "48px",
+            xxxl: "64px",
+            gutter: "24px",
+            "container-max": "1280px",
+            "margin-mobile": "20px",
+            "margin-desktop": "48px",
+            "stack-sm": "12px",
+            "stack-md": "24px",
+            "stack-lg": "48px"
+          },
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+            body: ["Inter", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Global Custom Styles -->
+  <style>
+    body {
+      background-color: #0B1220;
+      color: #E5E7EB;
+      overflow-y: scroll;
+    }
+    
+    /* Scrollbar Styling */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #070e1c;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #232a39;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #6366F1;
+    }
+
+    /* Glassmorphism Panel */
+    .glass-panel {
+      background: rgba(17, 24, 39, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(55, 65, 81, 0.5);
+    }
+    
+    /* Hover Lift Transition */
+    .hover-lift {
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .hover-lift:hover {
+      transform: translateY(-2px);
+      border-color: #6366F1;
+      box-shadow: 0 10px 20px rgba(99, 102, 241, 0.1);
+    }
+    
+    /* Scroll offset for fixed header */
+    section[id] {
+      scroll-margin-top: 80px;
+    }
+
+    /* Grid Pattern for Canvas/Backgrounds */
+    .grid-bg {
+      background-image: radial-gradient(circle at 1px 1px, rgba(99, 102, 241, 0.15) 1px, transparent 0);
+      background-size: 24px 24px;
+    }
+
+    .interactive-diagram-area {
+      border: 1px dashed #374151;
+      background: repeating-linear-gradient(
+        45deg,
+        rgba(55, 65, 81, 0.05),
+        rgba(55, 65, 81, 0.05) 10px,
+        transparent 10px,
+        transparent 20px
+      );
+    }
+
+    /* Square bullets for academic lists */
+    .academic-list {
+      list-style: none;
+    }
+    .academic-list li {
+      position: relative;
+      padding-left: 1.5rem;
+    }
+    .academic-list li::before {
+      content: "";
+      position: absolute;
+      left: 0.25rem;
+      top: 0.6em;
+      width: 6px;
+      height: 6px;
+      background-color: #6366F1;
+      border-radius: 1px;
+    }
+    
+    /* Utility transitions */
+    .tab-active {
+      border-bottom: 2px solid #6366F1;
+      color: #6366F1;
+      font-weight: 600;
+    }
+
+    /* Light Theme Styles (For future implementation, hook variables to roots) */
+    .light body {
+      background-color: #F9FAFB;
+      color: #111827;
+    }
+  </style>
+</head>
+<body class="font-sans antialiased text-on-background bg-background selection:bg-primary/20 selection:text-primary">
+
+  <!-- Top Navigation Bar -->
+  <nav class="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-md border-b border-outline-variant">
+    <div class="flex items-center justify-between px-gutter py-md max-w-container-max mx-auto h-16">
+      
+      <!-- Brand Logo -->
+      <div class="flex items-center gap-3">
+        <button id="mobile-menu-btn" class="md:hidden text-on-surface-variant hover:text-primary transition-colors focus:outline-none">
+          <span class="material-symbols-outlined text-2xl">menu</span>
+        </button>
+        <a class="flex items-center gap-2" href="#home">
+          <span class="material-symbols-outlined text-primary text-2xl font-bold">memory</span>
+          <span class="font-bold text-xl text-primary tracking-tight">HardwareLab</span>
+        </a>
+      </div>
+      
+      <!-- Primary Nav Links (Desktop) -->
+      <div class="hidden md:flex items-center gap-8">
+        <a class="nav-link text-on-surface-variant hover:text-primary transition-all duration-200 cursor-pointer active:opacity-80 py-1" href="#home" id="nav-home">Home</a>
+        <a class="nav-link text-on-surface-variant hover:text-primary transition-all duration-200 cursor-pointer active:opacity-80 py-1" href="#learn" id="nav-learn">Learn</a>
+        <a class="nav-link text-on-surface-variant hover:text-primary transition-all duration-200 cursor-pointer active:opacity-80 py-1" href="#compare" id="nav-compare">Compare</a>
+        <a class="nav-link text-on-surface-variant hover:text-primary transition-all duration-200 cursor-pointer active:opacity-80 py-1" href="#search" id="nav-search">Search</a>
+      </div>
+      
+      <!-- Utility Icons & Search -->
+      <div class="flex items-center gap-4">
+        <!-- Search Bar (Desktop) -->
+        <div class="relative hidden md:block">
+          <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+          <input id="global-search-input" class="pl-9 pr-4 py-1.5 bg-surface-container-highest border border-outline-variant rounded-full text-sm text-on-surface focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all w-64" placeholder="Search encyclopedia..." type="text"/>
+          <!-- Autocomplete results dropdown -->
+          <div id="search-autocomplete-box" class="absolute top-full right-0 w-80 mt-2 bg-surface border border-outline-variant rounded-xl shadow-2xl hidden z-50 overflow-hidden max-h-96">
+            <!-- Results injected here by JS -->
+          </div>
+        </div>
+        
+        <!-- Bookmarks button removed -->
+
+        <!-- Profile / Progress -->
+        <div class="relative">
+          <button id="profile-menu-btn" class="flex items-center gap-2 focus:outline-none" title="Profile Menu">
+            <span class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors cursor-pointer text-2xl">account_circle</span>
+          </button>
+          <!-- Profile Dropdown Menu -->
+          <div id="profile-dropdown" class="absolute right-0 mt-2 w-64 bg-surface border border-outline-variant rounded-xl shadow-2xl hidden z-[1000] overflow-hidden">
+            <!-- Injected by JS -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Navigation Drawer -->
+  <div id="mobile-menu-drawer" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm transition-opacity duration-300 opacity-0 pointer-events-none">
+    <div class="absolute left-0 top-0 bottom-0 w-72 bg-surface-container border-r border-outline-variant p-6 flex flex-col gap-6 transform -translate-x-full transition-transform duration-300 ease-in-out">
+      <div class="flex items-center justify-between border-b border-outline-variant pb-4">
+        <a class="flex items-center gap-2" href="#home">
+          <span class="material-symbols-outlined text-primary text-2xl font-bold">memory</span>
+          <span class="font-bold text-lg text-primary tracking-tight">HardwareLab</span>
+        </a>
+        <button id="close-mobile-menu-btn" class="text-on-surface-variant hover:text-primary transition-colors">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <div class="flex flex-col gap-4">
+        <!-- Search for Mobile -->
+        <div class="relative">
+          <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+          <input id="mobile-search-input" class="pl-9 pr-4 py-2 bg-background border border-outline-variant rounded-full text-sm text-on-surface w-full focus:outline-none" placeholder="Search..."/>
+          <div id="mobile-search-results" class="absolute left-0 right-0 top-full mt-2 bg-surface border border-outline-variant rounded-lg hidden z-50 overflow-hidden max-h-64"></div>
+        </div>
+        <a class="mobile-nav-link text-on-surface-variant hover:text-primary transition-all duration-200 py-2 border-b border-outline-variant/30" href="#home">Home</a>
+        <a class="mobile-nav-link text-on-surface-variant hover:text-primary transition-all duration-200 py-2 border-b border-outline-variant/30" href="#learn">Learn</a>
+        <a class="mobile-nav-link text-on-surface-variant hover:text-primary transition-all duration-200 py-2 border-b border-outline-variant/30" href="#compare">Compare</a>
+        <a class="mobile-nav-link text-on-surface-variant hover:text-primary transition-all duration-200 py-2 border-b border-outline-variant/30" href="#search">Search</a>
+      </div>
+      <div id="mobile-profile-section" class="mt-auto border-t border-outline-variant pt-4 p-2">
+        <!-- Injected by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Bookmarks & History Drawer Removed -->
+
+  <!-- Main Routing Layout Canvas -->
+  <div class="pt-16 min-h-screen flex flex-col">
+    <div id="app-router-outlet" class="flex-1 w-full">
+      <!-- Active Page Component Rendered Here -->
+      <div class="flex justify-center items-center h-[500px]">
+        <div class="flex flex-col items-center gap-4">
+          <div class="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+          <p class="text-on-surface-variant tracking-wider uppercase text-sm">Initializing Laboratory...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Shared Notification Toast -->
+  <div id="global-toast" class="fixed bottom-6 right-6 z-50 glass-panel px-6 py-3 rounded-lg shadow-2xl flex items-center gap-3 border-l-4 border-l-primary transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+    <span id="toast-icon" class="material-symbols-outlined text-primary">info</span>
+    <span id="toast-message" class="text-sm font-medium">Notification message</span>
+  </div>
+
+  <!-- Three.js & Plugins via CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+  <!-- Interactive 3D Model Viewer Modules -->
+  <script src="viewer3d/loader.js?v=1.0.7"></script>
+  <script src="viewer3d/controls.js?v=1.0.7"></script>
+  <script src="viewer3d/lighting.js?v=1.0.7"></script>
+  <script src="viewer3d/utils.js?v=1.0.7"></script>
+  <script src="viewer3d/viewer.js?v=1.0.7"></script>
+
+  <!-- Scripts Loading -->
+  <script src="data.js?v=1.0.8"></script>
+  <script src="app.js?v=1.0.8"></script>
+</body>
+</html>

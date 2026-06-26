@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Choosing the Right SSD - Tech Encyclopedia</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "error-container": "#93000a",
+                "inverse-primary": "#494bd6",
+                "outline": "#908fa0",
+                "tertiary-fixed-dim": "#ddb7ff",
+                "tertiary-fixed": "#f0dbff",
+                "on-primary-fixed-variant": "#2f2ebe",
+                "on-primary-fixed": "#07006c",
+                "outline-variant": "#464554",
+                "surface": "#0c1321",
+                "surface-container": "#19202e",
+                "on-tertiary-fixed-variant": "#6900b3",
+                "on-primary": "#1000a9",
+                "on-background": "#dce2f6",
+                "on-primary-container": "#0d0096",
+                "secondary-fixed-dim": "#2fd9f4",
+                "surface-container-lowest": "#070e1c",
+                "on-error-container": "#ffdad6",
+                "surface-variant": "#2e3544",
+                "primary-fixed-dim": "#c0c1ff",
+                "tertiary": "#ddb7ff",
+                "on-secondary-container": "#00515d",
+                "on-tertiary-container": "#400071",
+                "surface-container-low": "#151b2a",
+                "surface-tint": "#c0c1ff",
+                "secondary": "#5de6ff",
+                "primary-fixed": "#e1e0ff",
+                "inverse-surface": "#dce2f6",
+                "surface-container-highest": "#2e3544",
+                "on-error": "#690005",
+                "on-tertiary": "#490080",
+                "on-secondary": "#00363e",
+                "on-surface": "#dce2f6",
+                "on-surface-variant": "#c7c4d7",
+                "tertiary-container": "#b76dff",
+                "secondary-fixed": "#a2eeff",
+                "primary": "#c0c1ff",
+                "surface-dim": "#0c1321",
+                "primary-container": "#8083ff",
+                "surface-container-high": "#232a39",
+                "secondary-container": "#00cbe6",
+                "surface-bright": "#323949",
+                "on-tertiary-fixed": "#2c0051",
+                "error": "#ffb4ab",
+                "inverse-on-surface": "#2a3040",
+                "on-secondary-fixed": "#001f25",
+                "background": "#0c1321",
+                "on-secondary-fixed-variant": "#004e5a"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "xl": "32px",
+                "base": "8px",
+                "sm": "8px",
+                "container-max": "1280px",
+                "xxl": "48px",
+                "xxxl": "64px",
+                "xs": "4px",
+                "md": "16px",
+                "gutter": "24px",
+                "lg": "24px"
+        },
+        "fontFamily": {
+                "body-md": [
+                        "Inter"
+                ],
+                "hero-title-mobile": [
+                        "Inter"
+                ],
+                "body-lg": [
+                        "Inter"
+                ],
+                "section-heading-mobile": [
+                        "Inter"
+                ],
+                "subheading": [
+                        "Inter"
+                ],
+                "label-sm": [
+                        "Inter"
+                ],
+                "section-heading": [
+                        "Inter"
+                ],
+                "hero-title": [
+                        "Inter"
+                ]
+        },
+        "fontSize": {
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "1.5",
+                                "fontWeight": "400"
+                        }
+                ],
+                "hero-title-mobile": [
+                        "40px",
+                        {
+                                "lineHeight": "1.2",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "1.6",
+                                "fontWeight": "400"
+                        }
+                ],
+                "section-heading-mobile": [
+                        "28px",
+                        {
+                                "lineHeight": "1.2",
+                                "fontWeight": "600"
+                        }
+                ],
+                "subheading": [
+                        "24px",
+                        {
+                                "lineHeight": "1.4",
+                                "fontWeight": "500"
+                        }
+                ],
+                "label-sm": [
+                        "14px",
+                        {
+                                "lineHeight": "1",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "section-heading": [
+                        "36px",
+                        {
+                                "lineHeight": "1.2",
+                                "fontWeight": "600"
+                        }
+                ],
+                "hero-title": [
+                        "60px",
+                        {
+                                "lineHeight": "1.1",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        body {
+            background-color: #0B1220;
+            color: #dce2f6;
+        }
+        .nav-link {
+            transition: all 0.2s ease;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-secondary-container selection:text-on-secondary-fixed">
+<!-- TopNavBar -->
+<header class="bg-surface dark:bg-surface shadow-sm fixed top-0 w-full z-50">
+<div class="flex items-center justify-between px-gutter py-md max-w-container-max mx-auto">
+<div class="flex items-center gap-gutter">
+<a class="text-subheading font-subheading font-bold text-primary dark:text-primary" href="#">Tech Encyclopedia</a>
+<nav class="hidden md:flex gap-md bg-surface-container dark:bg-surface-container p-2 rounded-lg">
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-80" href="#">Home</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-80" href="#">Learn</a>
+<a class="font-body-md text-body-md text-primary dark:text-primary border-b-2 border-primary pb-1 font-bold hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-80" href="#">Choose</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-80" href="#">Explore</a>
+</nav>
+</div>
+<div class="flex items-center gap-md text-primary dark:text-primary">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors duration-200 active:opacity-80" style="font-variation-settings: 'FILL' 0;">account_circle</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors duration-200 active:opacity-80" style="font-variation-settings: 'FILL' 0;">settings</span>
+</div>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-gutter py-xxxl mt-xxl">
+<!-- Hero Section -->
+<section class="mb-xxxl border-b border-outline-variant pb-xxxl">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter items-center">
+<div>
+<h1 class="font-hero-title text-hero-title text-primary mb-md">Choosing the Right SSD</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-lg max-w-prose">A definitive guide to solid-state drives. Understand the specifications that matter, avoid common purchasing pitfalls, and match hardware capabilities directly to your workflow requirements.</p>
+</div>
+<div class="h-64 bg-surface-container border border-outline-variant rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-6xl text-on-surface-variant" style="font-variation-settings: 'FILL' 0;">hard_drive</span>
+</div>
+</div>
+</section>
+<!-- Buying Logic: User Types -->
+<section class="mb-xxxl">
+<h2 class="font-section-heading text-section-heading text-primary mb-lg">Workflow Prioritization Matrix</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- User Type 1 -->
+<div class="bg-[#111827] border border-outline-variant p-lg rounded-lg group hover:border-[#38BDF8] transition-colors duration-300 relative overflow-hidden">
+<div class="absolute inset-0 bg-secondary-container opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+<div class="flex items-center gap-xs mb-sm text-[#38BDF8]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">sports_esports</span>
+<h3 class="font-subheading text-subheading text-primary">The Gamer</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-lg">Prioritizes game load times, smooth asset streaming, and large storage capacities for modern titles.</p>
+<div class="border-t border-outline-variant pt-sm">
+<div class="font-label-sm text-label-sm text-on-surface-variant mb-xs uppercase tracking-wider">Prioritize</div>
+<div class="font-body-md text-body-md text-primary font-medium">High Sequential Read Speeds (PCIe Gen 4.0)</div>
+</div>
+</div>
+<!-- User Type 2 -->
+<div class="bg-[#111827] border border-outline-variant p-lg rounded-lg group hover:border-[#38BDF8] transition-colors duration-300 relative overflow-hidden">
+<div class="absolute inset-0 bg-secondary-container opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+<div class="flex items-center gap-xs mb-sm text-[#38BDF8]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">movie_edit</span>
+<h3 class="font-subheading text-subheading text-primary">Content Creator</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-lg">Requires sustained write performance for handling large video files (4K/8K) and complex project renders.</p>
+<div class="border-t border-outline-variant pt-sm">
+<div class="font-label-sm text-label-sm text-on-surface-variant mb-xs uppercase tracking-wider">Prioritize</div>
+<div class="font-body-md text-body-md text-primary font-medium">Sustained Write Speeds &amp; High TBW (Endurance)</div>
+</div>
+</div>
+<!-- User Type 3 -->
+<div class="bg-[#111827] border border-outline-variant p-lg rounded-lg group hover:border-[#38BDF8] transition-colors duration-300 relative overflow-hidden">
+<div class="absolute inset-0 bg-secondary-container opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+<div class="flex items-center gap-xs mb-sm text-[#38BDF8]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">computer</span>
+<h3 class="font-subheading text-subheading text-primary">Office &amp; Student</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-lg">Needs reliable, snappy system performance for web browsing, document editing, and fast boot times.</p>
+<div class="border-t border-outline-variant pt-sm">
+<div class="font-label-sm text-label-sm text-on-surface-variant mb-xs uppercase tracking-wider">Prioritize</div>
+<div class="font-body-md text-body-md text-primary font-medium">Value &amp; Capacity (PCIe Gen 3.0 or SATA)</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Decision Tree Visual Placeholder -->
+<section class="mb-xxxl">
+<h2 class="font-section-heading text-section-heading text-primary mb-lg">Selection Logic Tree</h2>
+<div class="w-full bg-surface-container border border-outline-variant border-dashed p-xxl flex flex-col items-center justify-center text-center rounded-lg">
+<span class="material-symbols-outlined text-4xl text-outline mb-sm">account_tree</span>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Interactive Logic Tree Component Placeholder</p>
+<p class="font-body-md text-body-md text-outline mt-xs font-mono">Flow: Form Factor -&gt; Interface -&gt; Capacity -&gt; Class</p>
+</div>
+</section>
+<!-- Mistakes to Avoid (Educational Callouts) -->
+<section class="mb-xxxl">
+<h2 class="font-section-heading text-section-heading text-primary mb-lg">Critical Pitfalls</h2>
+<div class="flex flex-col gap-lg">
+<div class="border-l-4 border-[#EF4444] bg-surface-container p-lg rounded-r-lg">
+<div class="flex items-center gap-sm mb-xs">
+<span class="material-symbols-outlined text-[#EF4444]">warning</span>
+<h4 class="font-subheading text-subheading text-primary">Ignoring the Motherboard Interface</h4>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-sm">Purchasing a PCIe Gen 5.0 NVMe SSD for a motherboard that only supports PCIe Gen 3.0. The drive will work, but it will be bottlenecked to Gen 3.0 speeds, wasting your investment.</p>
+</div>
+<div class="border-l-4 border-[#38BDF8] bg-surface-container p-lg rounded-r-lg">
+<div class="flex items-center gap-sm mb-xs">
+<span class="material-symbols-outlined text-[#38BDF8]">info</span>
+<h4 class="font-subheading text-subheading text-primary">Overpaying for Unnoticeable Speeds</h4>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-sm">For standard gaming and daily tasks, the difference between a high-end PCIe Gen 4.0 drive and an entry-level Gen 3.0 drive is often indistinguishable in real-world use.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest w-full py-xxl">
+<div class="flex flex-col md:flex-row justify-between items-center px-gutter max-w-container-max mx-auto gap-md">
+<span class="text-body-lg font-body-lg font-bold text-on-surface dark:text-on-surface">Tech Encyclopedia</span>
+<div class="flex flex-wrap gap-md justify-center">
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary underline transition-all cursor-pointer" href="#">Knowledge Graph</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary underline transition-all cursor-pointer" href="#">Learning Paths</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary underline transition-all cursor-pointer" href="#">Technical Glossary</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary underline transition-all cursor-pointer" href="#">API Access</a>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-surface-variant">© 2024 Tech Encyclopedia. All rights reserved.</p>
+</div>
+</footer>
+</body></html>

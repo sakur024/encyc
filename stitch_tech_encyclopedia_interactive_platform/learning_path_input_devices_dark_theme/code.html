@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Input Devices Fundamentals - Learning Path</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    </style>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "error-container": "#93000a",
+                "inverse-primary": "#494bd6",
+                "outline": "#908fa0",
+                "tertiary-fixed-dim": "#ddb7ff",
+                "tertiary-fixed": "#f0dbff",
+                "on-primary-fixed-variant": "#2f2ebe",
+                "on-primary-fixed": "#07006c",
+                "outline-variant": "#464554",
+                "surface": "#0c1321",
+                "surface-container": "#19202e",
+                "on-tertiary-fixed-variant": "#6900b3",
+                "on-primary": "#1000a9",
+                "on-background": "#dce2f6",
+                "on-primary-container": "#0d0096",
+                "secondary-fixed-dim": "#2fd9f4",
+                "surface-container-lowest": "#070e1c",
+                "on-error-container": "#ffdad6",
+                "surface-variant": "#2e3544",
+                "primary-fixed-dim": "#c0c1ff",
+                "tertiary": "#ddb7ff",
+                "on-secondary-container": "#00515d",
+                "on-tertiary-container": "#400071",
+                "surface-container-low": "#151b2a",
+                "surface-tint": "#c0c1ff",
+                "secondary": "#5de6ff",
+                "primary-fixed": "#e1e0ff",
+                "inverse-surface": "#dce2f6",
+                "surface-container-highest": "#2e3544",
+                "on-error": "#690005",
+                "on-tertiary": "#490080",
+                "on-secondary": "#00363e",
+                "on-surface": "#dce2f6",
+                "on-surface-variant": "#c7c4d7",
+                "tertiary-container": "#b76dff",
+                "secondary-fixed": "#a2eeff",
+                "primary": "#c0c1ff",
+                "surface-dim": "#0c1321",
+                "primary-container": "#8083ff",
+                "surface-container-high": "#232a39",
+                "secondary-container": "#00cbe6",
+                "surface-bright": "#323949",
+                "on-tertiary-fixed": "#2c0051",
+                "error": "#ffb4ab",
+                "inverse-on-surface": "#2a3040",
+                "on-secondary-fixed": "#001f25",
+                "background": "#0c1321",
+                "on-secondary-fixed-variant": "#004e5a",
+                
+                "bg-encyclopedia": "#0B1220",
+                "accent-active": "#6366F1",
+                "accent-completed": "#22C55E",
+                "accent-secondary": "#22D3EE",
+                "text-primary": "#E5E7EB"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "2xl": "1rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "xl": "32px",
+                "base": "8px",
+                "sm": "8px",
+                "container-max": "1280px",
+                "xxl": "48px",
+                "xxxl": "64px",
+                "xs": "4px",
+                "md": "16px",
+                "gutter": "32px",
+                "lg": "24px"
+        },
+        "fontFamily": {
+                "sans": ["Inter", "sans-serif"],
+                "body-md": ["Inter"],
+                "hero-title-mobile": ["Inter"],
+                "body-lg": ["Inter"],
+                "section-heading-mobile": ["Inter"],
+                "subheading": ["Inter"],
+                "label-sm": ["Inter"],
+                "section-heading": ["Inter"],
+                "hero-title": ["Inter"]
+        },
+        "fontSize": {
+                "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                "hero-title-mobile": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "section-heading-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                "subheading": ["24px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                "label-sm": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                "section-heading": ["36px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                "hero-title": ["60px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+        }
+},
+    },
+  }
+</script>
+</head>
+<body class="bg-bg-encyclopedia text-text-primary font-sans min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="bg-surface-container-lowest/80 backdrop-blur-md text-text-primary font-body-md text-body-md w-full top-0 sticky border-b border-surface-variant z-50">
+<div class="flex justify-between items-center h-16 px-6 max-w-container-max mx-auto">
+<div class="text-subheading font-bold text-text-primary">HardwareLab</div>
+<nav class="hidden md:flex gap-8 h-full items-center">
+<a class="text-on-surface-variant hover:text-text-primary transition-colors duration-200 cursor-pointer active:opacity-80 flex items-center h-full" href="#">Home</a>
+<a class="text-accent-active border-b-2 border-accent-active pb-1 font-bold hover:text-text-primary transition-colors duration-200 cursor-pointer active:opacity-80 flex items-center h-full pt-1" href="#">Learn</a>
+<a class="text-on-surface-variant hover:text-text-primary transition-colors duration-200 cursor-pointer active:opacity-80 flex items-center h-full" href="#">Choose</a>
+<a class="text-on-surface-variant hover:text-text-primary transition-colors duration-200 cursor-pointer active:opacity-80 flex items-center h-full" href="#">Explore</a>
+<a class="text-on-surface-variant hover:text-text-primary transition-colors duration-200 cursor-pointer active:opacity-80 flex items-center h-full" href="#">Tools</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-text-primary transition-colors duration-200 hidden md:block">Sign In</button>
+<button class="bg-accent-active text-white px-4 py-2 rounded font-medium hover:bg-opacity-90 transition-opacity duration-200">Get Started</button>
+</div>
+</div>
+</header>
+<div class="flex flex-1 max-w-container-max mx-auto w-full px-6 py-12 gap-gutter">
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col gap-12 min-w-0">
+<!-- Header Section -->
+<section class="flex flex-col gap-4">
+<div class="flex items-center gap-2 text-on-surface-variant font-label-sm uppercase tracking-wider">
+<span>LEARNING PATH</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span>PERIPHERALS</span>
+</div>
+<h1 class="text-hero-title text-text-primary">Input Devices Fundamentals</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl">
+                    Master the mechanics of human-computer interaction. Understand the engineering behind mice, keyboards, and trackpads, from optical sensors to mechanical switches.
+                </p>
+<!-- Progress Bar -->
+<div class="mt-6 bg-surface-container rounded-full h-2 w-full max-w-xl overflow-hidden flex">
+<div class="bg-accent-active h-full w-[33%] rounded-full transition-all duration-500 ease-in-out"></div>
+</div>
+<div class="text-sm font-medium text-on-surface-variant mt-2">
+                    1 of 3 Modules Completed • Est. 45m remaining
+                </div>
+</section>
+<!-- Syllabus Journey (Bento-ish Layout) -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-10 relative mt-8">
+<!-- Connection Line (Desktop) -->
+<div class="hidden md:block absolute left-[31px] top-8 bottom-8 w-px bg-surface-variant z-0"></div>
+<!-- Module 1: Mouse (Completed) -->
+<div class="md:col-span-12 flex gap-8 relative z-10 group cursor-pointer">
+<div class="flex-shrink-0 w-16 h-16 rounded-full bg-accent-completed/10 text-accent-completed flex items-center justify-center shadow-sm border-4 border-bg-encyclopedia z-10">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div class="flex-1 bg-surface-container-lowest border border-surface-variant p-8 rounded-2xl group-hover:border-surface-variant transition-colors duration-200">
+<div class="flex justify-between items-start mb-4">
+<div>
+<div class="font-label-sm text-on-surface-variant mb-2 uppercase tracking-wider">MODULE 1</div>
+<h3 class="text-section-heading-mobile text-text-primary">The Precision Mouse</h3>
+</div>
+<span class="bg-accent-completed/10 text-accent-completed px-3 py-1 rounded-full text-sm font-medium">Completed</span>
+</div>
+<p class="text-on-surface-variant mb-6">
+                            Deep dive into optical sensors, DPI, polling rates, and ergonomic design principles.
+                        </p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="bg-surface-container/50 p-4 rounded-xl flex items-start gap-3">
+<span class="material-symbols-outlined text-on-surface-variant">visibility</span>
+<div>
+<div class="text-sm font-semibold text-text-primary">Optical vs Laser Sensors</div>
+<div class="text-xs text-on-surface-variant mt-1">Tracking methodology</div>
+</div>
+</div>
+<div class="bg-surface-container/50 p-4 rounded-xl flex items-start gap-3">
+<span class="material-symbols-outlined text-on-surface-variant">speed</span>
+<div>
+<div class="text-sm font-semibold text-text-primary">Polling Rates &amp; Latency</div>
+<div class="text-xs text-on-surface-variant mt-1">Data transmission</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Module 2: Keyboard (In Progress) -->
+<div class="md:col-span-12 flex gap-8 relative z-10 group cursor-pointer mt-2">
+<div class="flex-shrink-0 w-16 h-16 rounded-full bg-surface-container-lowest border-2 border-accent-active flex items-center justify-center text-accent-active shadow-[0_0_15px_rgba(99,102,241,0.3)] ring-4 ring-bg-encyclopedia ring-offset-0 relative z-10">
+<div class="absolute inset-2 bg-accent-active rounded-full opacity-20 animate-pulse"></div>
+<span class="material-symbols-outlined">keyboard</span>
+</div>
+<div class="flex-1 bg-surface-container-low border-2 border-accent-active p-8 rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.2)]">
+<div class="flex justify-between items-start mb-4">
+<div>
+<div class="font-label-sm text-accent-active mb-2 uppercase tracking-wider">MODULE 2 • CURRENT</div>
+<h3 class="text-section-heading-mobile text-text-primary">Mechanical Keyboards</h3>
+</div>
+<button class="bg-accent-active text-white px-5 py-2.5 rounded-lg font-medium hover:bg-opacity-90 transition-opacity duration-200 flex items-center gap-2">
+                                Continue <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+<p class="text-on-surface-variant mb-6">
+                            Analyze switch types (linear, tactile, clicky), actuation force, n-key rollover, and keycap materials.
+                        </p>
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-xl border border-surface-variant">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-accent-active" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+<span class="text-sm font-medium text-text-primary">Switch Mechanisms Explained</span>
+</div>
+<span class="text-sm text-on-surface-variant">12:45</span>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-xl border border-surface-variant opacity-60">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant">lock</span>
+<span class="text-sm font-medium text-text-primary">Matrix Scanning &amp; Ghosting</span>
+</div>
+<span class="text-sm text-on-surface-variant">Read</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Module 3: Trackpad (Locked) -->
+<div class="md:col-span-12 flex gap-8 relative z-10 opacity-50 mt-2">
+<div class="flex-shrink-0 w-16 h-16 rounded-full bg-surface-container border border-surface-variant flex items-center justify-center text-on-surface-variant shadow-sm ring-4 ring-bg-encyclopedia ring-offset-0 z-10">
+<span class="material-symbols-outlined">touchpad_mouse</span>
+</div>
+<div class="flex-1 bg-surface-container-lowest border border-surface-variant p-8 rounded-2xl">
+<div class="flex justify-between items-start mb-2">
+<div>
+<div class="font-label-sm text-on-surface-variant mb-2 uppercase tracking-wider">MODULE 3</div>
+<h3 class="text-section-heading-mobile text-text-primary">Capacitive Surfaces</h3>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">lock</span>
+</div>
+<p class="text-on-surface-variant mt-2">
+                            Understanding multi-touch gestures, palm rejection algorithms, and haptic feedback engines.
+                        </p>
+</div>
+</div>
+</section>
+</main>
+<!-- Right Sidebar: Concepts & Quick Facts -->
+<aside class="hidden xl:flex flex-col w-80 gap-8 mt-4">
+<!-- Related Concepts Panel -->
+<div class="bg-surface-container-lowest border border-surface-variant rounded-2xl overflow-hidden">
+<div class="p-5 border-b border-surface-variant bg-surface-container-low">
+<h4 class="font-label-sm text-text-primary uppercase tracking-wider">RELATED CONCEPTS</h4>
+</div>
+<div class="p-5 flex flex-col gap-3">
+<a class="group flex items-center justify-between p-4 bg-surface-container-lowest hover:bg-surface-container transition-colors duration-200 rounded-xl border border-surface-variant" href="#">
+<div>
+<div class="text-sm font-medium text-text-primary group-hover:text-accent-active transition-colors">DPI &amp; CPI</div>
+<div class="text-xs text-on-surface-variant mt-1">Resolution metrics</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-accent-active text-[18px]">arrow_forward</span>
+</a>
+<a class="group flex items-center justify-between p-4 bg-surface-container-lowest hover:bg-surface-container transition-colors duration-200 rounded-xl border border-surface-variant" href="#">
+<div>
+<div class="text-sm font-medium text-text-primary group-hover:text-accent-active transition-colors">System Latency</div>
+<div class="text-xs text-on-surface-variant mt-1">End-to-end delay</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-accent-active text-[18px]">arrow_forward</span>
+</a>
+<a class="group flex items-center justify-between p-4 bg-surface-container-lowest hover:bg-surface-container transition-colors duration-200 rounded-xl border border-surface-variant" href="#">
+<div>
+<div class="text-sm font-medium text-text-primary group-hover:text-accent-active transition-colors">Ergonomics</div>
+<div class="text-xs text-on-surface-variant mt-1">Human-centric design</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-accent-active text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Quick Fact Widget -->
+<div class="bg-surface-container-lowest border border-surface-variant rounded-2xl p-6 border-l-4 border-l-accent-secondary shadow-[0_4px_12px_rgba(0,0,0,0.2)]">
+<div class="flex items-center gap-2 mb-3 text-accent-secondary">
+<span class="material-symbols-outlined text-[20px]">lightbulb</span>
+<span class="font-label-sm uppercase tracking-wider">PRO-TIP</span>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                    A mouse with a higher polling rate (e.g., 1000Hz) sends data to the PC every 1ms, significantly reducing input lag compared to standard 125Hz (8ms) devices.
+                </p>
+</div>
+</aside>
+</div>
+<!-- Footer -->
+<footer class="bg-surface-container text-text-primary font-body-md text-body-md w-full mt-12 border-t border-surface-variant">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 px-6 py-12 max-w-container-max mx-auto">
+<div class="md:col-span-1">
+<div class="text-subheading font-bold text-text-primary mb-4">HardwareLab</div>
+<p class="text-sm text-on-surface-variant">© 2024 HardwareLab. Intellectual property of the digital laboratory.</p>
+</div>
+<div class="flex flex-col gap-3">
+<a class="text-on-surface-variant hover:text-text-primary transition-colors duration-200" href="#">Knowledge Graph</a>
+<a class="text-accent-active font-semibold transition-colors duration-200" href="#">Learning Paths</a>
+</div>
+<div class="flex flex-col gap-3">
+<a class="text-on-surface-variant hover:text-text-primary transition-colors duration-200" href="#">Technical Glossary</a>
+<a class="text-on-surface-variant hover:text-text-primary transition-colors duration-200" href="#">API Access</a>
+</div>
+<div class="flex flex-col gap-3">
+<a class="text-on-surface-variant hover:text-text-primary transition-colors duration-200" href="#">Privacy Policy</a>
+</div>
+</div>
+</footer>
+</body></html>
