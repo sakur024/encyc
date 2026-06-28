@@ -1283,27 +1283,58 @@
       architecture: {
         id: 'architecture',
         name: 'Architecture',
-        content: `
-          ${device.architecture ? `
+        content: (() => {
+          if (!device.architecture) {
+            return '<p class="text-xs text-on-surface-variant">Architecture specifications not available.</p>';
+          }
+          
+          const mapping = {
+            mouse: 'mouse.jpg',
+            keyboard: 'keyboard.jpg',
+            joystick: 'joystick.jpg',
+            monitor: 'monitor.jpg',
+            speaker: 'speaker.jpg',
+            projector: 'projector.jpg',
+            external_ssd: 'external ssd.jpg',
+            network_adapter: 'network adapter.jpg',
+            usb_flash: 'flash drive.jpg',
+            webcam: 'webcam.jpg',
+            microphone: 'microphone.jpg'
+          };
+          
+          const imageName = mapping[device.id];
+          let imageHtml = '';
+          
+          if (imageName) {
+            const imgPath = `images/architecture_images/${imageName}`;
+            const altText = `${device.name} Internal Architecture`;
+            const captionText = `${device.name} architecture diagram showing internal components and hardware layout.`;
+            imageHtml = `
+              <div class="mt-4 w-full">
+                <div class="relative w-full rounded-2xl border border-outline-variant/30 bg-[#070e1c] p-6 flex items-center justify-center shadow-lg overflow-hidden group">
+                  <!-- Subtle gradient background -->
+                  <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(99,102,241,0.08)_0%,transparent_75%)] pointer-events-none"></div>
+                  <img src="${imgPath}" alt="${altText}" loading="lazy" class="max-w-full h-auto object-contain rounded-xl max-h-[500px] shadow-md border border-outline-variant/20 hover:scale-[1.01] transition-transform duration-300" />
+                </div>
+                <p class="text-xs text-center text-on-surface-variant leading-tight mt-2.5 max-w-xl mx-auto italic">${captionText}</p>
+              </div>
+            `;
+          } else {
+            imageHtml = `
+              <div class="flex items-center gap-2.5 p-4 border border-outline-variant/20 bg-surface-container/50 rounded-xl mt-4 max-w-xl">
+                <span class="material-symbols-outlined text-on-surface-variant/60 text-lg">info</span>
+                <p class="text-xs text-on-surface-variant italic font-medium">Architecture diagram currently unavailable.</p>
+              </div>
+            `;
+          }
+          
+          return `
             <div class="space-y-4">
               <p class="text-sm text-on-surface-variant leading-relaxed">${device.architecture.description}</p>
-              
-              <!-- Hotspots architecture diagram -->
-              <div class="interactive-diagram-area rounded-xl h-80 relative flex items-center justify-center overflow-hidden bg-background border border-outline-variant">
-                <span class="material-symbols-outlined text-7xl text-outline-variant opacity-30 select-none">developer_board</span>
-                <span class="absolute inset-0 flex items-center justify-center text-xs font-mono text-outline-variant/40 pointer-events-none">Hotspot Architecture Blueprint</span>
-                ${device.architecture.hotspots ? device.architecture.hotspots.map((hs, idx) => `
-                  <div class="absolute w-4 h-4 bg-secondary rounded-full shadow-[0_0_0_4px_rgba(34,211,238,0.2)] cursor-pointer group" style="top: ${hs.y}%; left: ${hs.x}%;">
-                    <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 bg-surface border border-outline-variant rounded p-3 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10 shadow-xl">
-                      <p class="text-xs font-bold text-on-surface mb-1">${hs.title}</p>
-                      <p class="text-[10px] text-on-surface-variant leading-tight">${hs.desc}</p>
-                    </div>
-                  </div>
-                `).join('') : ''}
-              </div>
+              ${imageHtml}
             </div>
-          ` : '<p class="text-xs text-on-surface-variant">Architecture specifications not available.</p>'}
-        `,
+          `;
+        })(),
         images: device.images && device.images.architecture ? device.images.architecture : [],
         layout: 'grid'
       },
@@ -2154,18 +2185,6 @@
         </nav>
       </aside>
     `;
-
-    // Hotspot elements for the Architecture view diagram
-    const hotspots = device.architecture && device.architecture.hotspots 
-      ? device.architecture.hotspots.map((hs, idx) => `
-        <div class="absolute w-4 h-4 bg-secondary rounded-full shadow-[0_0_0_4px_rgba(34,211,238,0.2)] cursor-pointer group" style="top: ${hs.y}%; left: ${hs.x}%;">
-          <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 bg-surface border border-outline-variant rounded p-3 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10 shadow-xl">
-            <p class="text-xs font-bold text-on-surface mb-1">${hs.title}</p>
-            <p class="text-[10px] text-on-surface-variant leading-tight">${hs.desc}</p>
-          </div>
-        </div>
-      `).join('')
-      : '';
 
     // Compile section structures dynamically from the map
     const deviceSections = getDeviceSections(device);
