@@ -43,31 +43,314 @@ const TECH_DATABASE = {
       ],
       oldVsNew: "Legacy mice relied on physical rollers and rubber balls which decayed, suffered from lint clogging, and had a maximum tracking resolution of 400 DPI. Modern mice use high-speed infrared cameras tracking micro-imperfections of surfaces at up to 26,000 DPI with zero friction.",
       types: [
-        {
-          name: "Optical Mouse",
-          desc: "Uses an LED light source (often red or infrared) and a tiny camera to snap surface snapshots and calculate movement.",
-          pros: ["Zero moving tracking parts", "Excellent consistency on mousepads", "Highly affordable"],
-          cons: ["Fails to track on glass or highly reflective surfaces"],
-          users: ["Office workers", "Competitive gamers", "General students"],
-          apps: ["Daily computing", "Competitive gaming"]
-        },
-        {
-          name: "Laser Mouse",
-          desc: "Uses an invisible laser diode to illuminate surfaces, revealing microscopic depth structures.",
-          pros: ["Tracks on glass and glossy desks", "Very high resolution capabilities"],
-          cons: ["Prone to tracking jitter on fabric pads due to excessive sensitivity"],
-          users: ["Business travelers", "Office professionals without mousepads"],
-          apps: ["Laptop utility", "Glass-desk workstations"]
-        },
-        {
-          name: "Vertical Ergonomic Mouse",
-          desc: "Angled shell (typically 57 degrees) that forces a natural 'handshake' grip, reducing forearm pronation.",
-          pros: ["Prevents carpal tunnel syndrome", "Relieves muscle strain"],
-          cons: ["Steep learning curve", "Bulky and heavier to transport"],
-          users: ["Coders", "Office professionals", "Users with wrist injuries"],
-          apps: ["Long office shifts", "Software development"]
-        }
-      ],
+      {
+            name: "Mechanical Mouse",
+            desc: "An early mouse design that uses a rubberized ball on the underside to track hand movements. As the ball rolls over a surface, it rotates two internal rollers oriented at right angles to detect X and Y axis coordinate shifts.",
+            features: [
+                  "Weighted rubber-coated steel ball",
+                  "Dual optomechanical internal rollers",
+                  "Optical encoder wheels with slot sensors"
+            ],
+            pros: [
+                  "Simple driverless operation",
+                  "Highly durable chassis",
+                  "Inexpensive historical standard"
+            ],
+            cons: [
+                  "Prone to dirt and lint clogging",
+                  "Requires frequent cleaning of rollers",
+                  "Low resolution (typically 400 DPI)"
+            ],
+            users: [
+                  "Retro computing hobbyists",
+                  "Legacy system operators",
+                  "Students learning engineering history"
+            ],
+            apps: [
+                  "Vintage systems navigation",
+                  "Retro arcade emulation"
+            ]
+      },
+      {
+            name: "Optical Mouse",
+            desc: "Uses a light-emitting diode (LED), typically red or infrared, and a low-resolution CMOS camera sensor to capture images of the surface beneath it. An onboard DSP analyzes sequential pictures to calculate coordinate changes.",
+            features: [
+                  "Red or infrared LED emitter",
+                  "Low-resolution CMOS image sensor array",
+                  "Integrated Digital Signal Processor (DSP)"
+            ],
+            pros: [
+                  "No physical moving parts to clean",
+                  "Excellent tracking consistency on standard mousepads",
+                  "Highly affordable mass production"
+            ],
+            cons: [
+                  "Cannot track on glass or highly reflective surfaces",
+                  "Low tracking resolution compared to laser sensors"
+            ],
+            users: [
+                  "Office workers",
+                  "Students",
+                  "General computer users"
+            ],
+            apps: [
+                  "Daily desktop use",
+                  "Basic productivity tasks",
+                  "School lab workstations"
+            ]
+      },
+      {
+            name: "Laser Mouse",
+            desc: "An advanced optical mouse that utilizes an invisible laser diode instead of an LED. The laser illuminates microscopic surface crevices, providing significantly higher tracking sensitivity and resolution.",
+            features: [
+                  "Invisible laser diode light source",
+                  "High-precision optical lens group",
+                  "Extreme DPI sensitivity control"
+            ],
+            pros: [
+                  "Tracks on glass, lacquer, and highly reflective desks",
+                  "Very high DPI resolution (up to 16,000+)",
+                  "Precise tracking on variable materials"
+            ],
+            cons: [
+                  "Can experience tracking jitter on cloth pads due to over-sensitivity"
+            ],
+            users: [
+                  "Graphic designers",
+                  "Multi-monitor workspace operators",
+                  "Business travelers working without pads"
+            ],
+            apps: [
+                  "Precision CAD layouts",
+                  "Photo editing",
+                  "Mobile computing without mousepads"
+            ]
+      },
+      {
+            name: "Wired Mouse",
+            desc: "Connects directly to the host computer using a physical USB or legacy PS/2 cable. It draws power directly from the bus interface, providing uninterrupted connection with zero wireless latency.",
+            features: [
+                  "Direct USB Type-A or Type-C bus connection",
+                  "Bus-powered architecture",
+                  "Continuous polling rate support"
+            ],
+            pros: [
+                  "No batteries or recharging required",
+                  "Zero risk of wireless signal interference",
+                  "Extremely low input latency (sub-1ms)"
+            ],
+            cons: [
+                  "Cable drag and clutter",
+                  "Restricted physical range of motion"
+            ],
+            users: [
+                  "Competitive gamers",
+                  "Static desktop users",
+                  "System administrators"
+            ],
+            apps: [
+                  "Competitive esports",
+                  "Desktop workstation control",
+                  "Server room terminal navigation"
+            ]
+      },
+      {
+            name: "Wireless Mouse",
+            desc: "Communicates with the host computer using radio frequency (RF) signals, typically in the 2.4GHz band via a small USB dongle receiver. This provides complete freedom of motion without cable drag.",
+            features: [
+                  "2.4GHz RF wireless communication",
+                  "USB nano-dongle receiver",
+                  "Integrated battery cell compartment"
+            ],
+            pros: [
+                  "Eliminates cable clutter and drag",
+                  "High range of motion (up to 10 meters)",
+                  "Clean aesthetic for workspaces"
+            ],
+            cons: [
+                  "Requires battery recharging or replacement",
+                  "Risk of losing the small USB dongle",
+                  "Potential wireless interference"
+            ],
+            users: [
+                  "Office professionals",
+                  "Travelers",
+                  "Minimalist desk enthusiasts"
+            ],
+            apps: [
+                  "Presentation controls",
+                  "Laptop utility on the go",
+                  "Clean home-office setups"
+            ]
+      },
+      {
+            name: "Bluetooth Mouse",
+            desc: "Uses standard Bluetooth wireless protocols to pair directly with the host computer's built-in Bluetooth transceiver. This removes the need for any USB dongle receiver, saving USB ports.",
+            features: [
+                  "Direct Bluetooth pairing protocols",
+                  "Multi-device connection switcher",
+                  "Low-power standby states"
+            ],
+            pros: [
+                  "No USB receiver dongle required",
+                  "Saves valuable USB ports on thin laptops",
+                  "Seamless switching between laptop, tablet, and PC"
+            ],
+            cons: [
+                  "Slightly higher latency than 2.4GHz RF wireless",
+                  "Requires a Bluetooth-compatible host controller"
+            ],
+            users: [
+                  "Laptop and tablet users",
+                  "Mobile professionals",
+                  "Dual-device creators"
+            ],
+            apps: [
+                  "Travel computing",
+                  "Tablet navigation",
+                  "Coffee-shop remote work"
+            ]
+      },
+      {
+            name: "Gaming Mouse",
+            desc: "A high-performance mouse designed specifically for competitive video games. It features custom high-speed optical sensors, high polling rates, programmable side buttons, and adjustable weight systems.",
+            features: [
+                  "Ultra-high DPI optical sensors (up to 30,000+)",
+                  "High polling rates (1,000Hz to 8,000Hz)",
+                  "Programmable side buttons and RGB profiles"
+            ],
+            pros: [
+                  "Extremely low response latency",
+                  "Highly customizable controls and macros",
+                  "Durable primary buttons using optical switches"
+            ],
+            cons: [
+                  "Premium cost",
+                  "Requires specialized setup software",
+                  "Aesthetics can be polarizing"
+            ],
+            users: [
+                  "Competitive esports players",
+                  "PC gamers",
+                  "Power users mapping macros"
+            ],
+            apps: [
+                  "FPS and MMO gaming",
+                  "Fast-paced interface control",
+                  "Macro-heavy workflows"
+            ]
+      },
+      {
+            name: "Vertical Mouse",
+            desc: "An ergonomic mouse sculpted to place the human hand in a vertical handshake position. This design minimizes forearm pronation and wrist twisting, reducing muscle strain.",
+            features: [
+                  "Handshake grip angle (57 to 60 degrees)",
+                  "Large integrated thumb rest contour",
+                  "Top/side main click button alignment"
+            ],
+            pros: [
+                  "Prevents carpal tunnel syndrome",
+                  "Relieves wrist and forearm fatigue",
+                  "Promotes better desk posture"
+            ],
+            cons: [
+                  "Steep initial learning curve",
+                  "Bulky dimensions make it hard to pack",
+                  "Poorly suited for fast-paced gaming"
+            ],
+            users: [
+                  "Users with wrist strain/RSI",
+                  "Coders",
+                  "Office administrators"
+            ],
+            apps: [
+                  "Long coding sessions",
+                  "Data entry",
+                  "Daily office operations"
+            ]
+      },
+      {
+            name: "Trackball Mouse",
+            desc: "A stationary input device featuring a large exposed ball that is rotated using the thumb or fingers. Since the mouse chassis remains stationary, it tracks cursor coordinates without physical hand displacement.",
+            features: [
+                  "Stationary heavy base chassis",
+                  "Large rolling trackball supported by bearings",
+                  "Thumb or finger tracking configuration"
+            ],
+            pros: [
+                  "Requires zero desk space to slide",
+                  "Drastically reduces wrist movement fatigue",
+                  "Extremely precise single-pixel adjustments"
+            ],
+            cons: [
+                  "Requires periodic cleaning of roller bearings",
+                  "Not suited for fast multi-directional sweeps"
+            ],
+            users: [
+                  "CAD designers",
+                  "Sound engineers",
+                  "Users with limited physical mobility"
+            ],
+            apps: [
+                  "Audio mixing consoles",
+                  "Industrial CAD layout design",
+                  "Compact workstations"
+            ]
+      },
+      {
+            name: "Ergonomic Mouse",
+            desc: "A mouse sculpted to fit the natural curves of the human hand, providing support for the palm, fingers, and thumb to minimize fatigue during long sessions.",
+            features: [
+                  "Contoured palm support",
+                  "Dedicated thumb rest",
+                  "Textured grip surfaces"
+            ],
+            pros: [
+                  "Reduces muscle strain and fatigue",
+                  "Provides comfortable hand rest"
+            ],
+            cons: [
+                  "Often designed exclusively for right-handed users",
+                  "Slightly bulky"
+            ],
+            users: [
+                  "Daily productivity",
+                  "Long office shifts",
+                  "Ergonomic workspace designs"
+            ],
+            apps: [
+                  "Daily office operations",
+                  "Coding",
+                  "General office productivity"
+            ]
+      },
+      {
+            name: "Travel Mouse",
+            desc: "A small, lightweight mouse designed for portability and use on the go with laptops or mobile devices.",
+            features: [
+                  "Ultra-compact pocketable size",
+                  "Retractable cable or wireless",
+                  "Low-profile lightweight build"
+            ],
+            pros: [
+                  "Extremely easy to pack and carry",
+                  "Lightweight design"
+            ],
+            cons: [
+                  "Uncomfortable for long-term use",
+                  "Fewer features and buttons"
+            ],
+            users: [
+                  "Business travel",
+                  "Coffee shop remote work",
+                  "Laptop bags"
+            ],
+            apps: [
+                  "Travel computing",
+                  "Mobile workspace productivity"
+            ]
+      }
+    ],
       architecture: {
         description: "Modern mice mount an optoelectronic sensor, a DSP, mechanical primary click microswitches, a rotary scroll wheel encoder, and an MCU on a single PCB.",
         hotspots: [
@@ -180,15 +463,342 @@ const TECH_DATABASE = {
       ],
       oldVsNew: "Legacy typewriters had physical arms that jammed. Modern keyboards use individual mechanical, membrane, or optical sensors with per-key RGB backlighting and wireless Bluetooth communication.",
       types: [
-        {
-          name: "Mechanical Keyboard",
-          desc: "Houses individual physical switches with metal springs under each keycap.",
-          pros: ["Tactile feedback", "Extremely durable", "Hotswappable switches"],
-          cons: ["Loud clicking noise", "Heavier and more expensive"],
-          users: ["Writers", "Gamers", "Developers"],
-          apps: ["Long typing sessions", "Coding"]
-        }
-      ],
+      {
+            name: "Mechanical Keyboard",
+            desc: "Features individual, self-contained physical switches beneath every key. Each keycap houses a plastic stem, a metal leaf contact, and a spring that determines actuation force and feedback.",
+            features: [
+                  "Individual mechanical key switches",
+                  "Customizable spring weights and stems",
+                  "Metal switch plate stabilizer boards"
+            ],
+            pros: [
+                  "Highly tactile and satisfying typing feedback",
+                  "Extremely durable (rated for 50M+ keystrokes)",
+                  "Highly customizable and repairable keycaps/switches"
+            ],
+            cons: [
+                  "Louder click/clack sound profiles",
+                  "Heavier chassis and premium pricing"
+            ],
+            users: [
+                  "Writers",
+                  "Software developers",
+                  "Competitive gamers"
+            ],
+            apps: [
+                  "Long typing sessions",
+                  "Coding",
+                  "Gaming setups"
+            ]
+      },
+      {
+            name: "Membrane Keyboard",
+            desc: "Uses a continuous flexible membrane sheet printed with electrical circuit traces. Pressing a key pushes a rubber dome down, bridging a connection between the top and bottom membrane layers.",
+            features: [
+                  "Flexible silicone rubber dome sheet",
+                  "Layered plastic membrane circuits",
+                  "Silent travel actuation"
+            ],
+            pros: [
+                  "Highly silent typing sound profile",
+                  "Spill-resistant circuit layouts",
+                  "Very light and inexpensive to manufacture"
+            ],
+            cons: [
+                  "Mushy and soft typing feedback",
+                  "Wears out faster (rated for ~5M keystrokes)"
+            ],
+            users: [
+                  "Office employees",
+                  "School labs",
+                  "Casual home computer users"
+            ],
+            apps: [
+                  "Quiet office environments",
+                  "Standard school kiosks",
+                  "Budget desktop setups"
+            ]
+      },
+      {
+            name: "Scissor Switch Keyboard",
+            desc: "An adaptation of membrane technology that connects keycaps using two interlocking plastic pieces in a scissor-like structure. This design stabilizes short travel key presses.",
+            features: [
+                  "Interlocking plastic scissor linkages",
+                  "Short key travel distance (typically 1-2mm)",
+                  "Low-profile keycap mountings"
+            ],
+            pros: [
+                  "Crisp, quick key actuation feel",
+                  "Silent and compact structure",
+                  "Allows thin, modern laptop designs"
+            ],
+            cons: [
+                  "Prone to damage if debris gets under scissor joints",
+                  "Minimal key travel feedback"
+            ],
+            users: [
+                  "Laptop users",
+                  "Journalists",
+                  "Minimalist workstation designers"
+            ],
+            apps: [
+                  "Ultrabook integration",
+                  "Compact travel workspaces",
+                  "Fast office typing"
+            ]
+      },
+      {
+            name: "Chiclet Keyboard",
+            desc: "Features flat, rectangular keys with rounded edges and small gaps between them, resembling chiclet gum. They typically use scissor switches underneath to provide a thin profile.",
+            features: [
+                  "Flat rectangular key designs",
+                  "Gapped key spacing layout",
+                  "Low-profile surface alignment"
+            ],
+            pros: [
+                  "Modern, clean aesthetic profile",
+                  "Reduces accidental key-overlap presses",
+                  "Easy to wipe down and keep clean"
+            ],
+            cons: [
+                  "Flat keys offer minimal finger contour support",
+                  "Shallow keypress depth"
+            ],
+            users: [
+                  "Modern laptop buyers",
+                  "General office workers",
+                  "Aesthetic enthusiasts"
+            ],
+            apps: [
+                  "Ultrabook integration",
+                  "Stylish desktop setups",
+                  "Quick document drafting"
+            ]
+      },
+      {
+            name: "Optical Keyboard",
+            desc: "Uses infrared light beams underneath each key switch. When a key is depressed, it blocks or opens a light path, which triggers key register detection instantaneously.",
+            features: [
+                  "Infrared light beam sensor array",
+                  "Contactless key trigger design",
+                  "Zero mechanical debounce latency"
+            ],
+            pros: [
+                  "Near-instant response latency (under 0.2ms)",
+                  "No physical electrical contacts to wear out",
+                  "Extremely durable (100M+ keystrokes)"
+            ],
+            cons: [
+                  "Very expensive pricing",
+                  "High power consumption for continuous light beams"
+            ],
+            users: [
+                  "Competitive esports players",
+                  "Gamers",
+                  "Extreme hardware enthusiasts"
+            ],
+            apps: [
+                  "Competitive gaming tournaments",
+                  "High-speed input rigs"
+            ]
+      },
+      {
+            name: "Gaming Keyboard",
+            desc: "A keyboard built specifically for video game play. It features mechanical or optical switches, RGB backlighting, macro programming keys, and high key rollover (NKRO).",
+            features: [
+                  "N-Key Rollover (NKRO) anti-ghosting",
+                  "Customizable per-key RGB backlighting",
+                  "Programmable macro profiles"
+            ],
+            pros: [
+                  "Supports simultaneous key presses without signal loss",
+                  "Fast actuation profiles",
+                  "Sturdy, metal-reinforced chassis design"
+            ],
+            cons: [
+                  "Polarizing aggressive aesthetic styles",
+                  "Requires control software in system memory"
+            ],
+            users: [
+                  "Gamers",
+                  "Streamers",
+                  "Custom PC builders"
+            ],
+            apps: [
+                  "Video game setups",
+                  "Streaming setups",
+                  "Macro automation environments"
+            ]
+      },
+      {
+            name: "Ergonomic Keyboard",
+            desc: "Features a split layout or wave-shaped design, angling keys to align with the natural posture of the human forearms and wrists. This design prevents pronation.",
+            features: [
+                  "Split or angled key groupings",
+                  "Integrated padded wrist support rests",
+                  "Tented chassis orientation options"
+            ],
+            pros: [
+                  "Reduces repetitive strain injuries (RSI)",
+                  "Aligns arms and shoulders naturally",
+                  "Alleviates long-term wrist fatigue"
+            ],
+            cons: [
+                  "Requires typing retraining",
+                  "Occupies a large physical desk footprint"
+            ],
+            users: [
+                  "Heavy typists",
+                  "Coders",
+                  "RSI sufferers"
+            ],
+            apps: [
+                  "Long typing sessions",
+                  "Coding workspaces",
+                  "Ergonomic desk layouts"
+            ]
+      },
+      {
+            name: "Wireless Keyboard",
+            desc: "Communicates with the host PC using standard 2.4GHz radio frequency (RF) bands via a compact USB receiver. This design allows physical range without cables.",
+            features: [
+                  "2.4GHz RF wireless signal transmission",
+                  "Compact USB receiver dongle",
+                  "Internal rechargeable battery or cells"
+            ],
+            pros: [
+                  "Keeps the desk clean and clutter-free",
+                  "Convenient for lap typing or long-range control",
+                  "Flexible positioning"
+            ],
+            cons: [
+                  "Requires battery charging or replacements",
+                  "Risk of wireless signal drops or lost receivers"
+            ],
+            users: [
+                  "Home office users",
+                  "HTPC owners",
+                  "Clean desk lovers"
+            ],
+            apps: [
+                  "Home theater PCs",
+                  "Clean workspace layouts",
+                  "Presentations"
+            ]
+      },
+      {
+            name: "Bluetooth Keyboard",
+            desc: "Uses standard Bluetooth pairing protocols to connect directly to the built-in Bluetooth receivers of laptops, tablets, and smartphones. This saves USB ports.",
+            features: [
+                  "Direct Bluetooth pairing protocols",
+                  "Multi-device connection toggle buttons",
+                  "Slim, energy-efficient architecture"
+            ],
+            pros: [
+                  "No USB receiver dongle required",
+                  "Works seamlessly with tablets, phones, and laptops",
+                  "Easy multi-device switching"
+            ],
+            cons: [
+                  "Slightly higher input latency than 2.4GHz wireless",
+                  "Slow wakeup times from standby power save"
+            ],
+            users: [
+                  "Mobile writers",
+                  "Tablet users",
+                  "Multi-device workspace creators"
+            ],
+            apps: [
+                  "Travel writing",
+                  "Tablet note-taking",
+                  "Multi-device office control"
+            ]
+      },
+      {
+            name: "Multimedia Keyboard",
+            desc: "Features dedicated media buttons, dials, and shortcut keys. These controls let users adjust volume, play/pause music, open calculators, and control browsers instantly.",
+            features: [
+                  "Dedicated volume knobs or dials",
+                  "Play, pause, skip, and mute buttons",
+                  "Browser and system shortcut hotkeys"
+            ],
+            pros: [
+                  "Instant media controls without tab switching",
+                  "Improves overall desk workflow efficiency",
+                  "Tactile control knobs"
+            ],
+            cons: [
+                  "Slightly larger physical size",
+                  "Fringe buttons might not work on all operating systems"
+            ],
+            users: [
+                  "Music listeners",
+                  "Video editors",
+                  "Office administrators"
+            ],
+            apps: [
+                  "Media playback control",
+                  "Video editing workflows",
+                  "General multitasking desks"
+            ]
+      },
+      {
+            name: "Flexible Keyboard",
+            desc: "Constructed from flexible silicone rubber, allowing the keyboard to be rolled up or folded for travel. It is highly resistant to water, dust, and physical impact.",
+            features: [
+                  "Silicone rubber physical construction",
+                  "Roll-up collapsible frame design",
+                  "Sealed dust and water-resistant shell"
+            ],
+            pros: [
+                  "Highly portable and rollable design",
+                  "Waterproof and easy to clean with soap",
+                  "Extremely drop-resistant"
+            ],
+            cons: [
+                  "Mushy and difficult typing feel",
+                  "Requires a flat, solid surface to register keypresses"
+            ],
+            users: [
+                  "Industrial technicians",
+                  "Outdoor workers",
+                  "Adventure travelers"
+            ],
+            apps: [
+                  "Dirty workshop environments",
+                  "Fieldwork setups",
+                  "Compact travel packs"
+            ]
+      },
+      {
+            name: "Virtual Keyboard",
+            desc: "An input method that renders a keyboard interface on a screen. It registers typing inputs using touchscreen taps, mouse clicks, or light projection.",
+            features: [
+                  "On-screen touchscreen layout rendering",
+                  "Optional laser projection hardware",
+                  "Software-based key mappings"
+            ],
+            pros: [
+                  "No physical desk footprint required",
+                  "Easy layout and language switching",
+                  "Cannot gather dirt or suffer mechanical failures"
+            ],
+            cons: [
+                  "Offers no physical tactile feedback",
+                  "Slower typing speeds than physical keyboards"
+            ],
+            users: [
+                  "Tablet and smartphone users",
+                  "Public information kiosk visitors",
+                  "Security-conscious users avoiding keyloggers"
+            ],
+            apps: [
+                  "Touchscreen tablets",
+                  "Banking ATM screen systems",
+                  "Mobile device travel inputs"
+            ]
+      }
+    ],
       architecture: {
         description: "A keyboard mounts keycaps, mechanical switches, stabilisers, metal switch plates, and a microcontroller board (MCU) on a layered PCB layout.",
         hotspots: [
@@ -297,23 +907,289 @@ const TECH_DATABASE = {
       ],
       oldVsNew: "Legacy matrix printers hammered carbon ribbons noisily. Modern laser printers silent-melt micro-toner plastic powder using precise light beams at up to 50 PPM.",
       types: [
-        {
-          name: "Laser Printer",
-          desc: "Uses an electrostatic laser beam to draw images on a drum, attracting dry toner powder which is then melted onto paper by heated rollers.",
-          pros: ["Ultra-fast print speeds", "Lowest cost per page", "Text does not smudge"],
-          cons: ["High initial machine cost", "Poor color photo blending"],
-          users: ["Offices", "Schools"],
-          apps: ["High-volume document text printing"]
-        },
-        {
-          name: "Inkjet Printer",
-          desc: "Sprays microscopic droplets of liquid ink from tiny nozzles directly onto paper.",
-          pros: ["Superb color photo transitions", "Cheap upfront cost"],
-          cons: ["Expensive replacement cartridges", "Ink smudges if wet", "Nozzles clog if unused"],
-          users: ["Photographers", "Home users"],
-          apps: ["Photo printing", "Color brochures"]
-        }
-      ],
+      {
+            name: "Inkjet Printer",
+            desc: "Creates images by spraying microscopic droplets of liquid ink through tiny printhead nozzles onto paper. It uses liquid ink cartridges to blend primary colors.",
+            features: [
+                  "Microscopic nozzle printheads",
+                  "Liquid CMYK dye/pigment ink tanks",
+                  "Precision stepping motor systems"
+            ],
+            pros: [
+                  "Excellent high-resolution color photo prints",
+                  "Low initial printer purchase cost",
+                  "Compact desktop physical sizing"
+            ],
+            cons: [
+                  "High ongoing cost of ink replacements",
+                  "Printheads can clog if not used frequently",
+                  "Slower print speeds than lasers"
+            ],
+            users: [
+                  "Home users",
+                  "Photographers",
+                  "Small craft offices"
+            ],
+            apps: [
+                  "Family photo printing",
+                  "Color document printing",
+                  "Art prints"
+            ]
+      },
+      {
+            name: "Laser Printer",
+            desc: "Uses a laser beam to project a static charge image onto a rotating photosensitive drum. This drum attracts dry toner powder, transferring it to paper using heat and pressure rollers.",
+            features: [
+                  "Rotating photosensitive drum unit",
+                  "Dry powdered toner cartridges",
+                  "High-temperature fuser rollers"
+            ],
+            pros: [
+                  "Extremely fast page print speeds",
+                  "Low cost per page printed",
+                  "Toner powder does not dry out or clog"
+            ],
+            cons: [
+                  "High initial purchase cost",
+                  "Bulky dimensions",
+                  "Poor color blending for professional photo prints"
+            ],
+            users: [
+                  "Offices",
+                  "Schools",
+                  "High-volume document environments"
+            ],
+            apps: [
+                  "Text document printing",
+                  "Invoices and reports",
+                  "High-volume text work"
+            ]
+      },
+      {
+            name: "Dot Matrix Printer",
+            desc: "An impact printer that uses pins to strike an ink-soaked ribbon against paper, similar to a typewriter. This mechanical impact leaves dot patterns that form characters.",
+            features: [
+                  "Striking pin printhead (9 or 24 pins)",
+                  "Ink ribbon cartridges",
+                  "Tractor feed continuous paper rollers"
+            ],
+            pros: [
+                  "Prints multi-part carbon copy documents",
+                  "Extremely low operating costs",
+                  "Highly durable hardware"
+            ],
+            cons: [
+                  "Very loud operation sound levels",
+                  "Slow and low-resolution print quality"
+            ],
+            users: [
+                  "Logistics warehouses",
+                  "Retail bill desks",
+                  "Bank branch operations"
+            ],
+            apps: [
+                  "Carbon copy shipping slips",
+                  "Multipart invoicing",
+                  "Industrial inventory logging"
+            ]
+      },
+      {
+            name: "Thermal Printer",
+            desc: "Uses heated printhead elements to activate a chemical reaction in heat-sensitive paper, turning it black. This design prints text and graphics without using ink or toner.",
+            features: [
+                  "Heated pixel element printheads",
+                  "Heat-sensitive thermal roll paper",
+                  "Contactless inkless system"
+            ],
+            pros: [
+                  "Requires zero ink or toner replacements",
+                  "Extremely fast, quiet receipt printing",
+                  "Compact, highly reliable mechanism"
+            ],
+            cons: [
+                  "Thermal printouts fade over time with heat/light",
+                  "Only prints in single color (usually black)"
+            ],
+            users: [
+                  "Retail stores",
+                  "Shipping departments",
+                  "Ticketing terminals"
+            ],
+            apps: [
+                  "Cash register receipts",
+                  "Shipping barcodes and labels",
+                  "Event ticket printing"
+            ]
+      },
+      {
+            name: "LED Printer",
+            desc: "Similar to a laser printer, but uses a solid-state LED array instead of a laser beam to charge the photosensitive drum. This design simplifies construction by removing moving mirrors.",
+            features: [
+                  "Solid-state LED strip light source",
+                  "Fewer internal moving drum components",
+                  "Photosensitive drum toner transfer"
+            ],
+            pros: [
+                  "Highly reliable with fewer moving parts",
+                  "Fast document printing output",
+                  "Compact interior layout design"
+            ],
+            cons: [
+                  "Repairs can be difficult",
+                  "Lower choice of replacement cartridges"
+            ],
+            users: [
+                  "Business offices",
+                  "Corporate environments",
+                  "Network printer systems"
+            ],
+            apps: [
+                  "Office document printing",
+                  "Corporate networks",
+                  "Medium-volume workspaces"
+            ]
+      },
+      {
+            name: "All-in-One Printer",
+            desc: "A multifunction device that combines printing, scanning, copying, and faxing into a single physical unit. This consolidates office equipment.",
+            features: [
+                  "Flatbed scanner glass and sensor",
+                  "Automatic Document Feeder (ADF)",
+                  "Integrated copiers and modems"
+            ],
+            pros: [
+                  "Consolidates multiple office devices",
+                  "Saves desk space and power outlets",
+                  "Centralized device software drivers"
+            ],
+            cons: [
+                  "If one function fails, the entire machine may require repair",
+                  "Lower performance than dedicated machines"
+            ],
+            users: [
+                  "Home offices",
+                  "Small businesses",
+                  "Administrative departments"
+            ],
+            apps: [
+                  "Document scanning and copying",
+                  "Multi-page faxing",
+                  "Daily office printing"
+            ]
+      },
+      {
+            name: "Photo Printer",
+            desc: "A specialized inkjet printer designed specifically to print high-fidelity photographs. It often uses extra ink cartridges (like light cyan and magenta) for color accuracy.",
+            features: [
+                  "Extended color ink systems (6 to 12 inks)",
+                  "Direct camera/SD card connection ports",
+                  "Optimized photo paper feed rollers"
+            ],
+            pros: [
+                  "Stunning, professional gallery-grade prints",
+                  "Excellent color accuracy and gradients",
+                  "Direct printing without PCs"
+            ],
+            cons: [
+                  "Extremely high ink consumption and paper costs",
+                  "Very slow printing speeds"
+            ],
+            users: [
+                  "Professional photographers",
+                  "Graphic designers",
+                  "Photo hobbyists"
+            ],
+            apps: [
+                  "Professional photo printing",
+                  "Portfolio generation",
+                  "Gallery exhibition printing"
+            ]
+      },
+      {
+            name: "Portable Printer",
+            desc: "A compact, battery-powered printer designed to let mobile professionals print documents or photos directly from laptops or phones while traveling.",
+            features: [
+                  "Rechargeable lithium battery pack",
+                  "Bluetooth or Wi-Fi Direct connections",
+                  "Ultra-slim folding chassis designs"
+            ],
+            pros: [
+                  "Print from anywhere without power cables",
+                  "Lightweight, easy to pack",
+                  "Direct mobile printing"
+            ],
+            cons: [
+                  "Limited paper tray capacity",
+                  "Higher cost per page than desktop models"
+            ],
+            users: [
+                  "Sales representatives",
+                  "Field technicians",
+                  "Mobile workers"
+            ],
+            apps: [
+                  "Invoice printing in transit",
+                  "Field receipt prints",
+                  "Contracts signed on-site"
+            ]
+      },
+      {
+            name: "3D Printer",
+            desc: "Creates three-dimensional physical objects layer-by-layer by melting and extruding plastic filaments, or by curing liquid resin using ultraviolet light.",
+            features: [
+                  "Heated extruder nozzle assembly",
+                  "3-axis computer-controlled gantry",
+                  "Thermoplastic filaments (PLA/ABS) or resin"
+            ],
+            pros: [
+                  "Creates custom physical prototypes",
+                  "Inexpensive production of unique replacement parts",
+                  "Improves engineering workflows"
+            ],
+            cons: [
+                  "Requires complex CAD software files",
+                  "Extremely slow print times (often hours per model)"
+            ],
+            users: [
+                  "Engineers",
+                  "Designers",
+                  "Hobbyists and makers"
+            ],
+            apps: [
+                  "Prototype design modeling",
+                  "Custom component fabrication",
+                  "Educational engineering labs"
+            ]
+      },
+      {
+            name: "Plotter",
+            desc: "A large-format printer that uses vector pens to draw continuous, high-precision lines onto massive paper rolls. This design is optimized for architectural blueprints.",
+            features: [
+                  "Moving physical pen holder assemblies",
+                  "Wide roll feed systems (24 to 60+ inches)",
+                  "Vector graphics rendering engines"
+            ],
+            pros: [
+                  "Prints continuous, unbroken vector lines",
+                  "Excellent for massive blueprints and banners",
+                  "High-precision line scaling"
+            ],
+            cons: [
+                  "Massive physical footprint and cost",
+                  "Extremely slow raster image print times"
+            ],
+            users: [
+                  "Architects",
+                  "Civil engineers",
+                  "Large banner print shops"
+            ],
+            apps: [
+                  "Architectural blueprint drawing",
+                  "Mechanical blueprint drafting",
+                  "Large-format maps and banners"
+            ]
+      }
+    ],
       architecture: {
         description: "Contains paper trays, feed rollers, laser exposure assembly, toner hopper, electrostatic drum, fuser assembly, and CPU board.",
         hotspots: [
@@ -422,15 +1298,259 @@ const TECH_DATABASE = {
       ],
       oldVsNew: "Legacy joysticks used carbon wipers that wore down and drifted. Modern flight sticks use contactless magnetic sensors, dual throttle levers, and haptic force feedback motors.",
       types: [
-        {
-          name: "Flight Simulator Stick",
-          desc: "Simulates flight columns, with specialized triggers, hat switches, and throttle wheels.",
-          pros: ["Immense immersion for flight simulators", "High precision"],
-          cons: ["Bulky desk space", "Expensive specialized hardware"],
-          users: ["Flight simulation enthusiasts", "Drone pilots"],
-          apps: ["Flight simulators", "Drone training"]
-        }
-      ],
+      {
+            name: "Analog Joystick",
+            desc: "Tracks direction and degree of tilt along a continuous range of movement, typically using internal potentiometers to measure changes in voltage. This allows for precise control.",
+            features: [
+                  "Dual axis potentiometers",
+                  "Continuous voltage change sensors",
+                  "Spring center return systems"
+            ],
+            pros: [
+                  "Precise control of speed and angle",
+                  "Perfect for flight simulators",
+                  "Fluid directional control"
+            ],
+            cons: [
+                  "Mechanical potentiometers wear out and drift",
+                  "Requires digital calibration"
+            ],
+            users: [
+                  "Gamers",
+                  "Drone pilots",
+                  "Simulation enthusiasts"
+            ],
+            apps: [
+                  "Flight simulation",
+                  "Drone flight control",
+                  "Precision space sims"
+            ]
+      },
+      {
+            name: "Digital Joystick",
+            desc: "Registers directional inputs as simple on/off signals using physical microswitches in four or eight set directions. It lacks analog tilt angle detection.",
+            features: [
+                  "Four main direction microswitches",
+                  "Tactile click feedback switches",
+                  "On/off digital signals"
+            ],
+            pros: [
+                  "Extremely responsive direction clicks",
+                  "Simple design with high durability",
+                  "Inexpensive to build"
+            ],
+            cons: [
+                  "No gradient or speed sensitivity control",
+                  "Limited to discrete directions"
+            ],
+            users: [
+                  "Retro arcade gamers",
+                  "Industrial machine operators",
+                  "Kiosk developers"
+            ],
+            apps: [
+                  "Classic arcade games",
+                  "Industrial machinery control",
+                  "Information kiosk menus"
+            ]
+      },
+      {
+            name: "Flight Stick",
+            desc: "A specialized joystick modeled after aircraft controls. It features a heavy base, complex hand grips, throttle levers, and multiple customizable buttons for flight simulation.",
+            features: [
+                  "Ergonomic aircraft-style hand grips",
+                  "Integrated HAT switches for panning",
+                  "Integrated throttle controls"
+            ],
+            pros: [
+                  "Realistic flight simulation feel",
+                  "Plenty of programmable control mappings",
+                  "Sturdy base prevents desk slips"
+            ],
+            cons: [
+                  "Bulky desktop physical footprint",
+                  "Very expensive specialized gear"
+            ],
+            users: [
+                  "Flight simulation pilots",
+                  "Space game players",
+                  "Aviation students"
+            ],
+            apps: [
+                  "Flight simulators",
+                  "Space combat simulators",
+                  "Drone training systems"
+            ]
+      },
+      {
+            name: "Arcade Joystick",
+            desc: "Features a heavy-duty ball-top or bat-top handle mounted above a flat metal plate. It uses microswitches to capture directions, designed to survive intense arcade play.",
+            features: [
+                  "Ball-top or bat-top handle designs",
+                  "Heavy-duty direction microswitches",
+                  "Restricter gates (square/octagonal)"
+            ],
+            pros: [
+                  "Industrial-grade physical durability",
+                  "Satisfying tactile clicking feel",
+                  "Optimal for rapid inputs"
+            ],
+            cons: [
+                  "Requires a flat surface or mount",
+                  "Lacks analog precision"
+            ],
+            users: [
+                  "Fighting game competitors",
+                  "Arcade cabinet builders",
+                  "Retro gamers"
+            ],
+            apps: [
+                  "Fighting games",
+                  "Arcade cabinet interfaces",
+                  "Emulation consoles"
+            ]
+      },
+      {
+            name: "Gamepad Joystick",
+            desc: "Small thumb-operated analog joysticks integrated directly into standard console controllers, allowing convenient navigation within gamepads.",
+            features: [
+                  "Thumb-sized rubberized thumbsticks",
+                  "Integrated click button switch (L3/R3)",
+                  "Compact interior potentiometers"
+            ],
+            pros: [
+                  "Easy to operate with thumbs",
+                  "Consolidated controller design",
+                  "Saves space"
+            ],
+            cons: [
+                  "Short throw distance reduces fine accuracy",
+                  "Prone to controller drift"
+            ],
+            users: [
+                  "Console gamers",
+                  "PC gamers",
+                  "Casual users"
+            ],
+            apps: [
+                  "Console gaming setups",
+                  "General gaming controllers",
+                  "Smart TV navigation"
+            ]
+      },
+      {
+            name: "Gamepad Joystick",
+            desc: "Small thumb-operated analog joysticks integrated directly into standard console controllers, allowing convenient navigation within gamepads.",
+            features: [
+                  "Thumb-sized rubberized thumbsticks",
+                  "Integrated click button switch (L3/R3)",
+                  "Compact interior potentiometers"
+            ],
+            pros: [
+                  "Easy to operate with thumbs",
+                  "Consolidated controller design",
+                  "Saves space"
+            ],
+            cons: [
+                  "Short throw distance reduces fine accuracy",
+                  "Prone to controller drift"
+            ],
+            users: [
+                  "Console gamers",
+                  "PC gamers",
+                  "Casual users"
+            ],
+            apps: [
+                  "Console gaming setups",
+                  "General gaming controllers",
+                  "Smart TV navigation"
+            ]
+      },
+      {
+            name: "Hall Effect Joystick",
+            desc: "Uses contactless magnetic sensors to measure joystick position instead of carbon potentiometers. This design completely eliminates friction wear and joystick drift.",
+            features: [
+                  "Neodymium permanent magnets",
+                  "Hall effect semiconductor sensors",
+                  "Frictionless interior movement"
+            ],
+            pros: [
+                  "Virtually immune to joystick drift",
+                  "Extremely long operational lifespan",
+                  "Highly consistent return-to-center accuracy"
+            ],
+            cons: [
+                  "Premium pricing",
+                  "Rarely included in standard controllers"
+            ],
+            users: [
+                  "Pro gamers",
+                  "Industrial machine controls",
+                  "High-budget simulator builds"
+            ],
+            apps: [
+                  "Competitive gaming tournaments",
+                  "Industrial robotics",
+                  "Premium simulator cockpits"
+            ]
+      },
+      {
+            name: "USB Joystick",
+            desc: "Connects directly using a standard wired USB plug, using driverless USB HID protocols to register buttons and axes instantly on PCs.",
+            features: [
+                  "Wired USB bus connector",
+                  "USB HID class device standard",
+                  "Bus power architecture"
+            ],
+            pros: [
+                  "Plug-and-play driverless setup",
+                  "No battery delays or charging",
+                  "Low transmission latency"
+            ],
+            cons: [
+                  "Cable limits physical range",
+                  "Occupies a USB port"
+            ],
+            users: [
+                  "PC gamers",
+                  "Simulator pilots",
+                  "Classroom learners"
+            ],
+            apps: [
+                  "PC simulator setups",
+                  "Educational control labs",
+                  "Desktop gaming"
+            ]
+      },
+      {
+            name: "Wireless Joystick",
+            desc: "Uses Bluetooth or 2.4GHz RF signals to transmit directional inputs to the PC, removing cord clutter from flight control desks.",
+            features: [
+                  "2.4GHz RF or Bluetooth wireless chipsets",
+                  "Internal rechargeable battery packs",
+                  "Low-latency wireless protocols"
+            ],
+            pros: [
+                  "Keeps the gaming desk clean and uncluttered",
+                  "Allows comfortable seating distance from screen",
+                  "Easy storage"
+            ],
+            cons: [
+                  "Requires battery recharging or swaps",
+                  "Wireless interference risks"
+            ],
+            users: [
+                  "Couch gamers",
+                  "Minimalist workstation users",
+                  "Sim pilots"
+            ],
+            apps: [
+                  "Living room gaming setups",
+                  "Remote control terminals",
+                  "Wireless sim rigs"
+            ]
+      }
+    ],
       architecture: {
         description: "Consists of a pivoting lever shaft, spring centering tension assembly, Hall Effect magnetic sensors, PCB encoder, and trigger microswitches.",
         hotspots: [
@@ -540,23 +1660,373 @@ const TECH_DATABASE = {
       ],
       oldVsNew: "Heavy CRTs flickered, distorted colors at angles, and weighed 50 pounds. Modern flat monitors are under 10 pounds, display 4K resolution, support HDR, and refresh up to 360Hz.",
       types: [
-        {
-          name: "IPS Monitor",
-          desc: "Uses liquid crystals aligned in parallel to achieve rich color reproduction and wide viewing angles.",
-          pros: ["Superb color accuracy", "Wide 178-degree viewing angles"],
-          cons: ["Lower contrast ratio (~1000:1)", "IPS glow backlight leakage"],
-          users: ["Graphic designers", "Programmers"],
-          apps: ["Color-accurate editing", "General office work"]
-        },
-        {
-          name: "OLED Monitor",
-          desc: "Uses organic carbon light-emitting diodes where each pixel generates its own light, eliminating backlights.",
-          pros: ["Infinite contrast ratio", "Sub-millisecond response times", "True deep blacks"],
-          cons: ["Risk of permanent burn-in", "More expensive"],
-          users: ["Gamers", "Media consumers"],
-          apps: ["HDR gaming", "Movie viewing"]
-        }
-      ],
+      {
+            name: "CRT Monitor",
+            desc: "An older monitor design that uses a cathode ray tube to fire electron beams at a phosphorescent screen, creating images row-by-row.",
+            features: [
+                  "Cathode ray electron guns",
+                  "Phosphor-coated screen panels",
+                  "Heavy glass tube vacuum housing"
+            ],
+            pros: [
+                  "Near-zero display motion blur",
+                  "Excellent native contrast and black levels",
+                  "Zero input lag (instant response)"
+            ],
+            cons: [
+                  "Extremely heavy, deep, and bulky",
+                  "High power usage and heat output",
+                  "Flicker can cause eye strain"
+            ],
+            users: [
+                  "Retro gaming hobbyists",
+                  "VCR editors",
+                  "Classic system technicians"
+            ],
+            apps: [
+                  "Retro console gaming",
+                  "Legacy video format editing",
+                  "Server diagnostics"
+            ]
+      },
+      {
+            name: "LCD Monitor",
+            desc: "Uses a liquid crystal layer sandwiched between polarized filters, backed by a light source (like fluorescent lamps or LEDs) to render images.",
+            features: [
+                  "Nematic liquid crystal panel layer",
+                  "Polarizing light filters",
+                  "Fluorescent (CCFL) or LED backlights"
+            ],
+            pros: [
+                  "Thin, lightweight frame designs",
+                  "Sharp image rendering at native resolutions",
+                  "Energy efficient compared to CRTs"
+            ],
+            cons: [
+                  "Limited viewing angles and black depth",
+                  "Backlight bleeding issues"
+            ],
+            users: [
+                  "General office workers",
+                  "Students",
+                  "Budget computer builders"
+            ],
+            apps: [
+                  "Office document work",
+                  "Web browsing",
+                  "School lab displays"
+            ]
+      },
+      {
+            name: "LED Monitor",
+            desc: "An LCD monitor that uses Light Emitting Diodes (LEDs) for its backlight instead of cold cathode fluorescent lamps (CCFLs), improving contrast.",
+            features: [
+                  "LED backlight array (edge or direct lit)",
+                  "Liquid crystal display pixel layer",
+                  "Energy-saving control units"
+            ],
+            pros: [
+                  "Improved contrast and brightness levels",
+                  "Thinner frame design than CCFL LCDs",
+                  "Low power consumption profiles"
+            ],
+            cons: [
+                  "Still suffers from light bleed in dark scenes",
+                  "Limited contrast compared to OLEDs"
+            ],
+            users: [
+                  "General computer buyers",
+                  "Office workers",
+                  "Media consumers"
+            ],
+            apps: [
+                  "Office work desk setups",
+                  "HD media streaming",
+                  "Standard computing"
+            ]
+      },
+      {
+            name: "OLED Monitor",
+            desc: "Features organic light-emitting diodes where each individual pixel generates its own light. This allows pixels to turn completely off, achieving infinite contrast.",
+            features: [
+                  "Self-emissive organic pixel elements",
+                  "Pixel-level dimming controls",
+                  "Extremely thin display panels"
+            ],
+            pros: [
+                  "Infinite contrast ratios and deep black levels",
+                  "Instant pixel response speeds (0.03ms)",
+                  "Wide viewing angles with zero color shift"
+            ],
+            cons: [
+                  "Risk of permanent screen burn-in",
+                  "Premium cost pricing",
+                  "Dimmer peak brightness than LEDs"
+            ],
+            users: [
+                  "Creative color professionals",
+                  "Hardcore gamers",
+                  "HDR movie consumers"
+            ],
+            apps: [
+                  "Color-accurate video grading",
+                  "High-end gaming setups",
+                  "HDR cinema watching"
+            ]
+      },
+      {
+            name: "QLED Monitor",
+            desc: "An LED-backlit LCD monitor that incorporates a quantum dot filter layer to enhance color gamut, brightness, and purity.",
+            features: [
+                  "Quantum dot nanocrystal film layer",
+                  "High-intensity LED backlighting",
+                  "Wide color gamut coverage"
+            ],
+            pros: [
+                  "Extremely bright highlights",
+                  "Vibrant, highly saturated colors",
+                  "No risk of permanent screen burn-in"
+            ],
+            cons: [
+                  "Requires backlighting, meaning blacks are not perfect",
+                  "Viewing angles are narrower than OLEDs"
+            ],
+            users: [
+                  "Media consumers",
+                  "Gamers in bright rooms",
+                  "Casual desktop users"
+            ],
+            apps: [
+                  "HDR media playback",
+                  "Gaming in well-lit rooms",
+                  "General multitasking"
+            ]
+      },
+      {
+            name: "IPS Monitor",
+            desc: "Uses In-Plane Switching liquid crystal technology. It is optimized to deliver superior color accuracy, consistency, and wide viewing angles.",
+            features: [
+                  "In-Plane Switching crystal alignments",
+                  "Wide viewing angles (up to 178 degrees)",
+                  "Accurate color spectrum profiles"
+            ],
+            pros: [
+                  "Exceptional color reproduction and accuracy",
+                  "Wide viewing angles with no color washout",
+                  "Ideal for photography and design"
+            ],
+            cons: [
+                  "Slower pixel response times than TN panels",
+                  "Commonly suffers from 'IPS glow' in dark rooms"
+            ],
+            users: [
+                  "Photographers",
+                  "Graphic designers",
+                  "General office workers"
+            ],
+            apps: [
+                  "Photo editing workflows",
+                  "Desktop design",
+                  "Multi-monitor business setups"
+            ]
+      },
+      {
+            name: "TN Monitor",
+            desc: "Uses Twisted Nematic liquid crystal technology, optimized for fast pixel response times and refresh rates at a very low manufacturing cost.",
+            features: [
+                  "Twisted Nematic crystal alignments",
+                  "Ultra-fast pixel response times (1ms or lower)",
+                  "High native refresh rate capability"
+            ],
+            pros: [
+                  "Low retail pricing",
+                  "Extremely low motion blur",
+                  "Highly responsive gaming panel"
+            ],
+            cons: [
+                  "Poor color accuracy and saturation",
+                  "Very narrow viewing angles (colors distort when tilted)"
+            ],
+            users: [
+                  "Competitive gamers",
+                  "Budget office builders",
+                  "Data terminal operators"
+            ],
+            apps: [
+                  "Esports gaming",
+                  "System command terminals",
+                  "Budget workstations"
+            ]
+      },
+      {
+            name: "VA Monitor",
+            desc: "Uses Vertical Alignment liquid crystal technology. It provides a middle ground between TN and IPS, featuring high contrast ratios and deep blacks.",
+            features: [
+                  "Vertical Alignment crystal systems",
+                  "High static contrast ratio (3000:1 to 5000:1)",
+                  "Deep black pixel states"
+            ],
+            pros: [
+                  "Excellent contrast ratios, much better than IPS/TN",
+                  "Great dark room movie viewing",
+                  "Affordable curved monitor options"
+            ],
+            cons: [
+                  "Slower pixel response times leading to dark smearing",
+                  "Narrower viewing angles than IPS"
+            ],
+            users: [
+                  "Media consumers",
+                  "Casual gamers",
+                  "General office workers"
+            ],
+            apps: [
+                  "Dark-room movie watching",
+                  "General office work",
+                  "Story-driven gaming"
+            ]
+      },
+      {
+            name: "Curved Monitor",
+            desc: "Features a display panel bent with a set radius (like 1800R or 1000R). This keeps all points of the screen at an equal distance from the user's eyes.",
+            features: [
+                  "Curved display panel glass/matrix",
+                  "Standard radius ratings (e.g., 1500R, 1000R)",
+                  "Panoramic viewer wrapping"
+            ],
+            pros: [
+                  "Reduces eye movement fatigue",
+                  "Provides an immersive field of view",
+                  "Minimizes glare at screen edges"
+            ],
+            cons: [
+                  "Distorts straight lines (bad for CAD and drawing)",
+                  "Best viewed from a single central position"
+            ],
+            users: [
+                  "Gamers",
+                  "Spreadsheet multitaskers",
+                  "Sim pilots"
+            ],
+            apps: [
+                  "Panoramic gaming",
+                  "Multi-window office workflows",
+                  "Simulated flight desks"
+            ]
+      },
+      {
+            name: "Touchscreen Monitor",
+            desc: "Includes touch sensors (usually capacitive) on top of the panel, letting users interact directly with the computer using finger taps or stylus pens.",
+            features: [
+                  "Capacitive touch sensor glass layer",
+                  "Multi-touch input registry (up to 10 points)",
+                  "Scratch-resistant glass screen"
+            ],
+            pros: [
+                  "Intuitive interaction without keyboard/mouse",
+                  "Excellent for interactive presentation panels",
+                  "Speeds up certain retail workflows"
+            ],
+            cons: [
+                  "Attracts fingerprints and smudges easily",
+                  "Causes arm strain if used upright ('gorilla arm')"
+            ],
+            users: [
+                  "Retail cashier operators",
+                  "Creative designers",
+                  "Interactive kiosk users"
+            ],
+            apps: [
+                  "Point of Sale (POS) terminals",
+                  "Creative drawing",
+                  "Interactive public exhibits"
+            ]
+      },
+      {
+            name: "Ultrawide Monitor",
+            desc: "Features a wider aspect ratio (usually 21:9 or 32:9) compared to standard 16:9 displays. This provides massive horizontal screen space without needing dual monitors.",
+            features: [
+                  "Cinematic aspect ratios (21:9 or 32:9)",
+                  "Extra-wide pixel resolution formats",
+                  "Multi-window split software compatibility"
+            ],
+            pros: [
+                  "Replaces dual-monitor setups seamlessly",
+                  "Immense horizontal timeline space",
+                  "Cinematic field of view for movies and games"
+            ],
+            cons: [
+                  "Not all software supports 21:9 resolution natively",
+                  "Requires high GPU power for gaming"
+            ],
+            users: [
+                  "Video editors",
+                  "Financial analysts",
+                  "Programmers multitasking"
+            ],
+            apps: [
+                  "Video timeline editing",
+                  "Multi-column spreadsheets",
+                  "Panoramic gaming rigs"
+            ]
+      },
+      {
+            name: "Gaming Monitor",
+            desc: "A monitor built specifically for gaming. It features high refresh rates (144Hz to 360Hz+), variable refresh rate tech (G-Sync/FreeSync), and low input lag.",
+            features: [
+                  "High refresh rates (144Hz to 360Hz+)",
+                  "Variable Refresh Rate (VRR) chipsets",
+                  "Low response times (0.5ms to 1ms)"
+            ],
+            pros: [
+                  "Buttery smooth motion rendering",
+                  "Eliminates screen tearing and stutter",
+                  "Ultra-low input response delay"
+            ],
+            cons: [
+                  "Premium cost",
+                  "Lower color accuracy on budget gaming models"
+            ],
+            users: [
+                  "Gamers",
+                  "Streamers",
+                  "Esports competitors"
+            ],
+            apps: [
+                  "Fast-paced video gaming",
+                  "High-frame-rate simulations",
+                  "Gaming setups"
+            ]
+      },
+      {
+            name: "Portable Monitor",
+            desc: "A slim, lightweight monitor designed to connect to laptops via USB-C, providing a secondary screen for travelers without needing power bricks.",
+            features: [
+                  "Ultra-slim folding cover chassis",
+                  "Single USB-C cable power and video input",
+                  "Lightweight build"
+            ],
+            pros: [
+                  "Highly portable and fits in laptop bags",
+                  "Easy secondary screen setup anywhere",
+                  "Draws power from host device"
+            ],
+            cons: [
+                  "Small screen sizes (typically 13-15 inches)",
+                  "Quiet built-in speakers"
+            ],
+            users: [
+                  "Traveling professionals",
+                  "Remote workers",
+                  "On-the-go programmers"
+            ],
+            apps: [
+                  "Mobile dual-screen setups",
+                  "Coffee shop client presentations",
+                  "Laptop travel extension"
+            ]
+      }
+    ],
       architecture: {
         description: "Houses an LCD or OLED cell matrix, LED backlight array (for LCDs), polarization sheets, control PCB board, and connector ports.",
         hotspots: [
@@ -668,15 +2138,259 @@ const TECH_DATABASE = {
       ],
       oldVsNew: "Legacy PC speakers had thin, tinny sound and picked up buzzing interference from phone signals. Modern active speakers feature built-in DACs, Bluetooth LE, and wood-cabinet acoustics.",
       types: [
-        {
-          name: "Active Bookshelf Speaker",
-          desc: "Dual speakers where one cabinet houses the amplifier board, receiving line-level signals directly.",
-          pros: ["Rich frequency response", "No external amp needed", "Excellent stereo separation"],
-          cons: ["Takes up significant desk space", "Requires a separate wall plug"],
-          users: ["Content creators", "Music enthusiasts"],
-          apps: ["Video editing", "Music listening"]
-        }
-      ],
+      {
+            name: "Stereo Speaker",
+            desc: "A dual-channel audio system consisting of left and right speakers. This setup creates a sense of spatial direction by projecting different audio channels.",
+            features: [
+                  "Dual channel configuration (left/right)",
+                  "Passive or active crossover circuits",
+                  "Spatial soundstage positioning"
+            ],
+            pros: [
+                  "Accurate, natural music soundstage",
+                  "Simple physical connection setups",
+                  "Widely supported audio format"
+            ],
+            cons: [
+                  "Lacks surround sound depth for films",
+                  "Requires correct symmetrical placement for optimal sound"
+            ],
+            users: [
+                  "Music listeners",
+                  "Casual gamers",
+                  "General desktop users"
+            ],
+            apps: [
+                  "Hi-Fi music listening",
+                  "Casual desktop audio",
+                  "Home stereo setups"
+            ]
+      },
+      {
+            name: "Computer Speaker",
+            desc: "Active speakers designed specifically to sit next to a PC monitor, featuring built-in amplifiers and convenient front volume controls.",
+            features: [
+                  "Integrated audio amplifier boards",
+                  "Front-facing volume control dials",
+                  "Headphone passthrough audio jacks"
+            ],
+            pros: [
+                  "Easy plug-and-play desktop setup",
+                  "Compact size fits under monitors",
+                  "Budget-friendly options"
+            ],
+            cons: [
+                  "Small drivers limit bass response",
+                  "Short cabling restricts placement options"
+            ],
+            users: [
+                  "Desktop PC owners",
+                  "Office employees",
+                  "Students"
+            ],
+            apps: [
+                  "Desktop PC audio",
+                  "Video calling",
+                  "Casual media streaming"
+            ]
+      },
+      {
+            name: "Bookshelf Speaker",
+            desc: "Compact speakers designed to rest on bookshelves, tables, or stands. They are built to provide high-quality audio in small to medium-sized rooms.",
+            features: [
+                  "Standard two-way driver systems (woofer + tweeter)",
+                  "High-density wooden speaker enclosures",
+                  "Passive or active speaker configurations"
+            ],
+            pros: [
+                  "Outstanding, rich sound fidelity for their size",
+                  "Robust wood-cabinet acoustics",
+                  "High-quality component construction"
+            ],
+            cons: [
+                  "Requires an external amplifier if passive",
+                  "Occupies physical shelf space"
+            ],
+            users: [
+                  "Audiophiles",
+                  "Home studio recorders",
+                  "Home audio fans"
+            ],
+            apps: [
+                  "Hi-Fi home listening",
+                  "Music mixing",
+                  "Home theater front speakers"
+            ]
+      },
+      {
+            name: "Portable Speaker",
+            desc: "A small speaker powered by internal batteries. It is designed to be easily carried in bags and withstand outdoor use.",
+            features: [
+                  "Integrated rechargeable battery",
+                  "Rugged shock-resistant rubber casing",
+                  "Compact, lightweight build"
+            ],
+            pros: [
+                  "Highly portable and easy to pack",
+                  "Resilient against drops and water",
+                  "No power outlets required"
+            ],
+            cons: [
+                  "Limited maximum volume and bass depth",
+                  "Battery capacity degrades over time"
+            ],
+            users: [
+                  "Travelers",
+                  "Outdoor workers",
+                  "Campers"
+            ],
+            apps: [
+                  "Outdoor picnics",
+                  "Travel hotel rooms",
+                  "Portable audio playback"
+            ]
+      },
+      {
+            name: "Bluetooth Speaker",
+            desc: "A wireless speaker that uses Bluetooth technology to receive audio signals from paired smartphones, tablets, or laptops.",
+            features: [
+                  "Bluetooth receiver antennas",
+                  "Wireless audio codec support (AAC/SBC)",
+                  "Built-in playback control buttons"
+            ],
+            pros: [
+                  "Quick and easy wireless connection setups",
+                  "Eliminates audio input cables",
+                  "Compatible with all mobile devices"
+            ],
+            cons: [
+                  "Slightly compressed audio quality",
+                  "Wireless range limits connection stability"
+            ],
+            users: [
+                  "Mobile device users",
+                  "Casual listeners",
+                  "Teens and students"
+            ],
+            apps: [
+                  "Wireless smartphone music",
+                  "Outdoor parties",
+                  "Convenient room audio"
+            ]
+      },
+      {
+            name: "USB Speaker",
+            desc: "Receives both digital audio data and power through a single USB cable. This eliminates the need for separate 3.5mm audio and power cords.",
+            features: [
+                  "Single USB interface cable",
+                  "Onboard digital-to-analog converter (DAC)",
+                  "Bus-powered audio amplifier"
+            ],
+            pros: [
+                  "Clean single-cable setup",
+                  "Driverless digital audio output",
+                  "No wall power outlets required"
+            ],
+            cons: [
+                  "Volume output is limited by USB power limits",
+                  "Not compatible with analog-only sources"
+            ],
+            users: [
+                  "Laptop users",
+                  "Clean desk enthusiasts",
+                  "Office workers"
+            ],
+            apps: [
+                  "Laptop desktop extensions",
+                  "Clean workspace setups",
+                  "Basic office audio"
+            ]
+      },
+      {
+            name: "Smart Speaker",
+            desc: "Includes built-in voice assistants (like Google Assistant or Alexa). It uses Wi-Fi to stream music, answer questions, and control smart home devices.",
+            features: [
+                  "Far-field voice microphone arrays",
+                  "Integrated Wi-Fi streaming chips",
+                  "Voice assistant software integration"
+            ],
+            pros: [
+                  "Hands-free voice command controls",
+                  "Streams directly from internet sources",
+                  "Acts as a central smart home hub"
+            ],
+            cons: [
+                  "Privacy concerns with active microphones",
+                  "Requires stable home Wi-Fi networks"
+            ],
+            users: [
+                  "Smart home users",
+                  "Multitaskers",
+                  "Tech-savvy families"
+            ],
+            apps: [
+                  "Voice assistant command centers",
+                  "Wi-Fi music streaming",
+                  "Smart home hub controls"
+            ]
+      },
+      {
+            name: "Soundbar",
+            desc: "A long, slim speaker enclosure containing multiple drivers aligned horizontally. It is designed to sit directly beneath a TV, improving audio.",
+            features: [
+                  "Multi-driver array inside single bar",
+                  "Optional wireless external subwoofer",
+                  "HDMI ARC / Optical connection ports"
+            ],
+            pros: [
+                  "Slim profile fits neatly under flat TVs",
+                  "Easy single-cable connection setup",
+                  "Provides virtual surround sound"
+            ],
+            cons: [
+                  "Cannot replicate a true physical surround system",
+                  "Limited physical stereo width separation"
+            ],
+            users: [
+                  "TV owners",
+                  "Small apartment residents",
+                  "Home entertainment fans"
+            ],
+            apps: [
+                  "Living room television audio",
+                  "Compact home theaters",
+                  "Console gaming audio"
+            ]
+      },
+      {
+            name: "Satellite Speaker",
+            desc: "Small, compact speakers designed to be mounted on walls or stands, acting as side or rear channels in surround sound configurations.",
+            features: [
+                  "Small physical driver enclosures",
+                  "Wall-mounting bracket interfaces",
+                  "Optimized mid-to-high frequency drivers"
+            ],
+            pros: [
+                  "Discrete, compact physical sizes",
+                  "Fills surround sound channels perfectly",
+                  "Easy wall-mounting integration"
+            ],
+            cons: [
+                  "Lacks low-end bass (must be paired with subwoofers)",
+                  "Requires extensive speaker cabling"
+            ],
+            users: [
+                  "Home theater designers",
+                  "Movie fans",
+                  "Surround audio setups"
+            ],
+            apps: [
+                  "Surround sound system channels",
+                  "Home theater speaker setups",
+                  "Ambient restaurant audio"
+            ]
+      }
+    ],
       architecture: {
         description: "Mounts active amplifier PCBs, power transformers, cross-over networks, and physical driver cones inside acoustically sealed cabinets.",
         hotspots: [
@@ -783,15 +2497,232 @@ const TECH_DATABASE = {
       ],
       oldVsNew: "Legacy stereo systems only had left and right sound. Modern sound systems support 3D spatial mapping, wireless rear satellites, and intense sub-bass subwoofers.",
       types: [
-        {
-          name: "5.1 Surround Sound System",
-          desc: "A layout containing front left, center, front right, rear left, rear right satellite speakers, and a dedicated subwoofer.",
-          pros: ["True physical spatial positioning", "Powerful deep sub-bass"],
-          cons: ["Requires complex wire routing around rooms", "Bulky footprint"],
-          users: ["Gamers", "Home theater enthusiasts"],
-          apps: ["Spatial gaming", "Home cinema"]
-        }
-      ],
+      {
+            name: "2.0 Channel System",
+            desc: "A two-channel audio configuration containing left and right speakers. It contains no dedicated low-frequency subwoofer channel.",
+            features: [
+                  "Dual channel configurations (left/right)",
+                  "Full-range physical speaker drivers",
+                  "Simple connection terminals"
+            ],
+            pros: [
+                  "Simple setup with minimal cable clutter",
+                  "Excellent for pure stereo music listening",
+                  "Inexpensive configuration"
+            ],
+            cons: [
+                  "Lacks deep sub-bass frequencies",
+                  "No surround sound channel separation"
+            ],
+            users: [
+                  "Stereo music listeners",
+                  "Office workers",
+                  "Casual desktop users"
+            ],
+            apps: [
+                  "Hi-Fi music listening",
+                  "Desktop computer setups",
+                  "Basic stereo audio"
+            ]
+      },
+      {
+            name: "2.1 Channel System",
+            desc: "Enhances a standard stereo layout by adding a dedicated subwoofer channel (.1) to handle low-frequency bass sounds.",
+            features: [
+                  "Left and right speaker satellites",
+                  "Dedicated low-frequency subwoofer cabinet",
+                  "Active crossover frequency splitters"
+            ],
+            pros: [
+                  "Rich, deep bass for movies and games",
+                  "Maintains a compact desktop size",
+                  "Excellent value for audio performance"
+            ],
+            cons: [
+                  "Subwoofer adds extra desk/floor footprint",
+                  "Potential for muddy bass crossover points"
+            ],
+            users: [
+                  "PC gamers",
+                  "Action movie fans",
+                  "General music listeners"
+            ],
+            apps: [
+                  "Desktop PC gaming",
+                  "Apartment movie watching",
+                  "Electronic music listening"
+            ]
+      },
+      {
+            name: "5.1 Surround System",
+            desc: "A true surround sound setup featuring five channels (front-left, center, front-right, surround-left, surround-right) and a subwoofer.",
+            features: [
+                  "Three front speaker satellites",
+                  "Two rear surround speaker satellites",
+                  "Low-frequency subwoofer cabinet"
+            ],
+            pros: [
+                  "Immersive, three-dimensional movie audio",
+                  "Clear movie dialogue from center channel",
+                  "Industry standard format"
+            ],
+            cons: [
+                  "Requires running multiple speaker cables across rooms",
+                  "Higher price and physical footprint"
+            ],
+            users: [
+                  "Home theater owners",
+                  "Movie enthusiasts",
+                  "Immersive gamers"
+            ],
+            apps: [
+                  "Home theater setups",
+                  "Living room movie watching",
+                  "Immersive video gaming"
+            ]
+      },
+      {
+            name: "7.1 Surround System",
+            desc: "Adds two side surround channels to a 5.1 system. This provides a total of seven speaker channels and one subwoofer for seamless audio positioning.",
+            features: [
+                  "Three front speaker satellites",
+                  "Two side surround satellites",
+                  "Two rear surround satellites",
+                  "Subwoofer unit"
+            ],
+            pros: [
+                  "Exceptional, highly detailed spatial tracking",
+                  "Seamless audio pans behind the listener",
+                  "Ultimate home cinema audio standard"
+            ],
+            cons: [
+                  "Requires a large room and precise layout",
+                  "Very high cost and complex cable setups"
+            ],
+            users: [
+                  "Enthusiast home theater builders",
+                  "Audiophiles",
+                  "Hardcore simulator gamers"
+            ],
+            apps: [
+                  "Dedicated home theaters",
+                  "Precision simulator cockpits",
+                  "Premium cinema setups"
+            ]
+      },
+      {
+            name: "Home Theater System",
+            desc: "A complete packaged audio system designed to recreate the cinema experience at home, containing surround speakers and an AV receiver.",
+            features: [
+                  "Dedicated multi-channel AV receiver",
+                  "Surround speaker satellite array",
+                  "High-power active subwoofer"
+            ],
+            pros: [
+                  "Recreates authentic cinema audio quality",
+                  "Centralized control of all media inputs",
+                  "Powerful room-filling volume"
+            ],
+            cons: [
+                  "Highly complex installation and configuration",
+                  "Very high power usage and retail cost"
+            ],
+            users: [
+                  "Movie buffs",
+                  "Families building entertainment hubs",
+                  "Home design planners"
+            ],
+            apps: [
+                  "Living room cinema setups",
+                  "Media room entertainment",
+                  "Console gaming hubs"
+            ]
+      },
+      {
+            name: "Hi-Fi Audio System",
+            desc: "High-Fidelity systems built using premium audio components to reproduce recorded music as close to the original studio recording as possible.",
+            features: [
+                  "High-fidelity digital-to-analog converters (DAC)",
+                  "Premium standalone power amplifiers",
+                  "Acoustically tuned cabinet speakers"
+            ],
+            pros: [
+                  "Ultra-pure, transparent audio reproduction",
+                  "Reveals micro-details in music tracks",
+                  "Extremely low distortion profiles"
+            ],
+            cons: [
+                  "Extremely high audiophile pricing",
+                  "Requires high-quality lossless source files"
+            ],
+            users: [
+                  "Audiophiles",
+                  "Music collectors",
+                  "Studio mixing engineers"
+            ],
+            apps: [
+                  "Critical music listening",
+                  "Vinyl record playback",
+                  "Studio audio mastering"
+            ]
+      },
+      {
+            name: "Professional PA System",
+            desc: "Public Address systems designed to amplify speech or live music in massive public spaces, concert halls, and outdoor venues.",
+            features: [
+                  "High-decibel active line arrays",
+                  "Multi-channel audio mixing consoles",
+                  "Rugged, road-ready speaker enclosures"
+            ],
+            pros: [
+                  "Projects audio clearly to thousands of listeners",
+                  "Extremely rugged, road-durable hardware",
+                  "Handles high peak voltage inputs"
+            ],
+            cons: [
+                  "Very large, heavy physical components",
+                  "Harsh, unrefined sound for close listening"
+            ],
+            users: [
+                  "Concert organizers",
+                  "Public speakers",
+                  "Event venues"
+            ],
+            apps: [
+                  "Live concerts",
+                  "Corporate conferences",
+                  "Outdoor stadium announcements"
+            ]
+      },
+      {
+            name: "Wireless Sound System",
+            desc: "Uses Wi-Fi networks to stream audio across multiple rooms wirelessly. This system coordinates multi-room playback without audio cables.",
+            features: [
+                  "Multi-room Wi-Fi audio sync systems",
+                  "Dedicated mobile streaming control apps",
+                  "Active wireless speaker units"
+            ],
+            pros: [
+                  "Eliminates all long-distance speaker cables",
+                  "Seamless whole-home music streaming",
+                  "Easy addition of new speakers"
+            ],
+            cons: [
+                  "Requires a fast, stable home Wi-Fi network",
+                  "Slightly latency delays between rooms on weak Wi-Fi"
+            ],
+            users: [
+                  "Smart home designers",
+                  "Multitasking families",
+                  "Minimalist home owners"
+            ],
+            apps: [
+                  "Multi-room home music",
+                  "Wireless surround setups",
+                  "Ambient home audio"
+            ]
+      }
+    ],
       architecture: {
         description: "Mounts an active multi-channel amplifier, Dolby/DTS decoder chip, digital inputs (HDMI, optical), and multi-channel driver outputs.",
         hotspots: [
@@ -898,15 +2829,287 @@ const TECH_DATABASE = {
       ],
       oldVsNew: "Legacy projectors required dark rooms, took 2 minutes to warm up, and had loud fans. Modern laser projectors run cool, start instantly, project in 4K HDR, and can display 100-inch images from 6 inches away.",
       types: [
-        {
-          name: "DLP Projector",
-          desc: "Uses a micro-mirror chip (DMD) and a spinning color wheel to reflect light through lenses.",
-          pros: ["High contrast and sharp pixels", "No dust filters needed", "Cheaper than laser"],
-          cons: ["Rainbow effect visible to sensitive users", "Mechanical spinning parts"],
-          users: ["Teachers", "Home cinema builders"],
-          apps: ["Business slides", "Home theater movies"]
-        }
-      ],
+      {
+            name: "LCD Projector",
+            desc: "Passes light through three small liquid crystal display panels (Red, Green, Blue) to create images. The colors are combined using a prism before projection.",
+            features: [
+                  "3-panel LCD projection system (3LCD)",
+                  "Internal light-splitting color prism",
+                  "Solid-state optical light path"
+            ],
+            pros: [
+                  "Excellent, highly accurate color saturation",
+                  "Sharp text rendering for presentations",
+                  "No rainbow effect artifacts"
+            ],
+            cons: [
+                  "Lower contrast and black levels than DLP",
+                  "Bulkier chassis due to three LCD panels"
+            ],
+            users: [
+                  "Teachers and lecturers",
+                  "Business presenters",
+                  "Office workers"
+            ],
+            apps: [
+                  "Classroom presentations",
+                  "Business office slides",
+                  "Standard document projection"
+            ]
+      },
+      {
+            name: "DLP Projector",
+            desc: "Uses a digital micromirror device chip containing millions of microscopic mirrors. These mirrors tilt toward or away from the light source to project pixels.",
+            features: [
+                  "Digital Micromirror Device (DMD) chip",
+                  "High-speed spinning color filter wheel",
+                  "Sealed optics dust protection"
+            ],
+            pros: [
+                  "Exceptional native contrast and black levels",
+                  "Smooth, fluid motion rendering",
+                  "Compact and sealed light engines"
+            ],
+            cons: [
+                  "Spinning color wheel can cause 'rainbow effect'",
+                  "Slightly less saturated color values"
+            ],
+            users: [
+                  "Home theater designers",
+                  "Cinema movie viewers",
+                  "Action gamers"
+            ],
+            apps: [
+                  "Home theater movies",
+                  "Action video gaming",
+                  "Movie theater projection"
+            ]
+      },
+      {
+            name: "LCoS Projector",
+            desc: "Liquid Crystal on Silicon systems combine LCD and DLP technologies, reflecting light off a liquid crystal backplate to achieve ultra-high resolutions.",
+            features: [
+                  "Liquid Crystal on Silicon reflection panels",
+                  "Ultra-high pixel density layouts",
+                  "Premium lens projection groups"
+            ],
+            pros: [
+                  "Stunning, color-rich image quality",
+                  "Highest contrast levels of all lamp designs",
+                  "Virtually invisible pixel structures"
+            ],
+            cons: [
+                  "Extremely expensive retail pricing",
+                  "Large, heavy projector cabinet frames"
+            ],
+            users: [
+                  "High-end home cinema owners",
+                  "Professional color graders",
+                  "Premium commercial venues"
+            ],
+            apps: [
+                  "High-end home theaters",
+                  "Commercial screening rooms",
+                  "Color grading displays"
+            ]
+      },
+      {
+            name: "LED Projector",
+            desc: "Utilizes individual Red, Green, and Blue light-emitting diodes as the light source instead of a traditional high-pressure mercury lamp.",
+            features: [
+                  "RGB solid-state LED arrays",
+                  "Mercury-free projection light source",
+                  "Instant power-on/off cooling circuits"
+            ],
+            pros: [
+                  "Extremely long lamp life (20,000+ hours)",
+                  "Low power consumption and heat output",
+                  "Vibrant color reproduction"
+            ],
+            cons: [
+                  "Lower maximum brightness output (ANSI lumens)",
+                  "Dim projection on massive screens"
+            ],
+            users: [
+                  "Casual movie watchers",
+                  "Mobile presenters",
+                  "Eco-conscious buyers"
+            ],
+            apps: [
+                  "Bedroom movies",
+                  "Small meeting rooms",
+                  "Eco-friendly workspaces"
+            ]
+      },
+      {
+            name: "Laser Projector",
+            desc: "Uses a solid-state laser light source to project images. It offers incredible brightness, color accuracy, and instant-on capabilities.",
+            features: [
+                  "Solid-state laser diode engine",
+                  "High ANSI lumens output ratings",
+                  "Instant-on direct light projection"
+            ],
+            pros: [
+                  "Exceptional brightness levels (ANSI lumens)",
+                  "Ultra-long life with no lamp swaps",
+                  "Outstanding color spectrum coverage"
+            ],
+            cons: [
+                  "Very high initial purchase cost",
+                  "Safety caution around high-power laser beams"
+            ],
+            users: [
+                  "Large auditorium planners",
+                  "Professional home theater builders",
+                  "Art galleries"
+            ],
+            apps: [
+                  "Large auditorium presentations",
+                  "High-end home cinemas",
+                  "Museum art exhibitions"
+            ]
+      },
+      {
+            name: "Portable Projector",
+            desc: "A compact, lightweight projector designed to run on battery power, allowing users to project presentations or movies on the go.",
+            features: [
+                  "Integrated rechargeable battery",
+                  "Pico/pocket physical dimensions",
+                  "Built-in media streaming software"
+            ],
+            pros: [
+                  "Project anywhere without power cords",
+                  "Extremely lightweight and portable",
+                  "Direct wireless smartphone pairing"
+            ],
+            cons: [
+                  "Very low brightness (dim room required)",
+                  "Quiet internal built-in speaker"
+            ],
+            users: [
+                  "Business travelers",
+                  "Campers",
+                  "Casual bedroom viewers"
+            ],
+            apps: [
+                  "Travel presentations",
+                  "Outdoor backyard movies",
+                  "Hotel room displays"
+            ]
+      },
+      {
+            name: "Short Throw Projector",
+            desc: "Features a specialized wide-angle lens, allowing it to project a large image from a short distance (typically 3 to 8 feet) from the wall.",
+            features: [
+                  "Wide-angle projection lens group",
+                  "Optimized optical offset designs",
+                  "Standard desktop setups"
+            ],
+            pros: [
+                  "Large screen sizes in cramped rooms",
+                  "Presenter does not block the light beam",
+                  "Easy desktop placement"
+            ],
+            cons: [
+                  "Requires a perfectly flat projection screen",
+                  "Image corners can suffer slight distortion"
+            ],
+            users: [
+                  "Small apartment owners",
+                  "Classroom teachers",
+                  "Game rooms"
+            ],
+            apps: [
+                  "Small living room theater",
+                  "Interactive classrooms",
+                  "Close-up gaming screens"
+            ]
+      },
+      {
+            name: "Ultra Short Throw Projector",
+            desc: "Uses a unique curved mirror optical lens system to project a massive screen from just inches away from the wall.",
+            features: [
+                  "Curved reflection mirror lens systems",
+                  "Extreme wide-angle optical paths",
+                  "Credenza/TV console placement alignment"
+            ],
+            pros: [
+                  "Sits directly against the projection wall",
+                  "Completely eliminates presenter shadow cast",
+                  "Replaces standard living room TVs easily"
+            ],
+            cons: [
+                  "Very high retail pricing",
+                  "Requires expensive tensioned screens to avoid distortions"
+            ],
+            users: [
+                  "Modern living room cinema owners",
+                  "Corporate boardroom planners",
+                  "Tech fans"
+            ],
+            apps: [
+                  "Living room television replacement",
+                  "Corporate boardroom screens",
+                  "Aesthetic clean setups"
+            ]
+      },
+      {
+            name: "Home Theater Projector",
+            desc: "Projectors tuned specifically for home cinema use, focusing on high contrast ratios, color accuracy, and quiet fan operation.",
+            features: [
+                  "Cinema color calibration standards (Rec. 709)",
+                  "Dynamic iris contrast enhancers",
+                  "Low-noise silent cooling fans"
+            ],
+            pros: [
+                  "Stunning cinematic movie quality",
+                  "True-to-life theater color reproduction",
+                  "Quiet operation does not disrupt films"
+            ],
+            cons: [
+                  "Low brightness limits performance in lit rooms",
+                  "Requires dedicated dark home theater rooms"
+            ],
+            users: [
+                  "Movie buffs",
+                  "Dedicated home theater owners",
+                  "Media room designers"
+            ],
+            apps: [
+                  "Home theater movies",
+                  "Immersive movie screening",
+                  "Gaming sessions in dark rooms"
+            ]
+      },
+      {
+            name: "Business Projector",
+            desc: "Optimized to project presentations and text spreadsheets in bright office conference rooms. It prioritizes high brightness over deep contrast.",
+            features: [
+                  "High brightness ANSI lumens output",
+                  "HDMI, VGA, and legacy video inputs",
+                  "Keystone correction adjustment rings"
+            ],
+            pros: [
+                  "Visible in bright, fluorescent conference rooms",
+                  "Sharp text rendering for presentations",
+                  "Robust input port selection"
+            ],
+            cons: [
+                  "Poor contrast and black levels in dark rooms",
+                  "Loud cooling fan sound levels"
+            ],
+            users: [
+                  "Corporate managers",
+                  "Office administrators",
+                  "Event presenters"
+            ],
+            apps: [
+                  "Corporate boardroom presentations",
+                  "Office spreadsheet displays",
+                  "Conference lectures"
+            ]
+      }
+    ],
       architecture: {
         description: "Mounts an intense light engine, image microchip, lens array, focus mechanics, and cooling fans inside an enclosure.",
         hotspots: [
@@ -1015,15 +3218,173 @@ const TECH_DATABASE = {
       ],
       oldVsNew: "Legacy external HDDs read at 100MB/s, were heavy, and broke easily if dropped. Modern external SSDs transfer files at 2000MB/s, weigh under 2 ounces, and are shock-resistant.",
       types: [
-        {
-          name: "Portable NVMe SSD",
-          desc: "A pocket-sized drive mounting an M.2 NVMe SSD inside a protective shell with a USB bridge chip.",
-          pros: ["Extreme transfer speeds (1000MB/s+)", "Highly shock-resistant", "Small pocket size"],
-          cons: ["Higher cost per gigabyte", "Can get hot under constant write loads"],
-          users: ["Video editors", "Backup creators"],
-          apps: ["Direct video editing", "Fast data transfers"]
-        }
-      ],
+      {
+            name: "SATA External SSD",
+            desc: "Utilizes a SATA interface inside the enclosure. It offers a major speed boost over external hard drives, capped by the SATA interface limit.",
+            features: [
+                  "SATA III controller bridge board",
+                  "Standard solid-state flash memory",
+                  "Legacy system compatibility"
+            ],
+            pros: [
+                  "Highly affordable price per gigabyte",
+                  "Reliable solid-state architecture",
+                  "Runs cool during data transfers"
+            ],
+            cons: [
+                  "Speeds are capped at ~550 MB/s due to SATA limit"
+            ],
+            users: [
+                  "Students",
+                  "Office workers backing up files",
+                  "Casual computer users"
+            ],
+            apps: [
+                  "Standard document backups",
+                  "Media file transfers",
+                  "General storage expansions"
+            ]
+      },
+      {
+            name: "NVMe External SSD",
+            desc: "Utilizes a high-speed NVMe PCIe SSD inside the enclosure, delivering read and write speeds that exceed standard SATA drives.",
+            features: [
+                  "NVMe M.2 SSD storage board",
+                  "PCIe-to-USB bridge controller chip",
+                  "High-speed USB 3.2 Gen 2x2 protocols"
+            ],
+            pros: [
+                  "Extremely fast transfer speeds (1000 - 2000+ MB/s)",
+                  "Drastically reduces massive file transfer times",
+                  "Compact physical stick form factors"
+            ],
+            cons: [
+                  "Premium pricing",
+                  "Can run hot under heavy write workloads"
+            ],
+            users: [
+                  "Video editors",
+                  "Creative professionals",
+                  "Tech power users"
+            ],
+            apps: [
+                  "Direct 4K video editing",
+                  "Massive database transfers",
+                  "Fast operating system backups"
+            ]
+      },
+      {
+            name: "USB External SSD",
+            desc: "A standard portable SSD that connects using USB-A or USB-C ports, using standard USB protocols for plug-and-play compatibility.",
+            features: [
+                  "Standard USB Type-C physical port",
+                  "USB Mass Storage class firmware",
+                  "Universal system bus compatibility"
+            ],
+            pros: [
+                  "Plug-and-play on all computers",
+                  "No special drivers required",
+                  "Widely compatible across devices"
+            ],
+            cons: [
+                  "Speeds depend on the host computer's USB port version"
+            ],
+            users: [
+                  "Office workers",
+                  "Students",
+                  "General PC users"
+            ],
+            apps: [
+                  "Cross-platform file transfers",
+                  "General data backups",
+                  "Secondary storage expansion"
+            ]
+      },
+      {
+            name: "Thunderbolt External SSD",
+            desc: "Designed to connect to Thunderbolt ports, linking the external drive directly to the computer's PCIe lanes for unmatched speeds.",
+            features: [
+                  "Dedicated Intel Thunderbolt controller chip",
+                  "Direct PCIe lane bus mapping",
+                  "Thunderbolt 3/4 cable interface"
+            ],
+            pros: [
+                  "Blazing fast transfer speeds (up to 3200+ MB/s)",
+                  "Direct, latency-free file access",
+                  "Highly stable for direct OS booting"
+            ],
+            cons: [
+                  "Extremely expensive pricing",
+                  "Not compatible with standard USB-only ports"
+            ],
+            users: [
+                  "Professional videographers",
+                  "Creative editors",
+                  "Enthusiasts requiring top speed"
+            ],
+            apps: [
+                  "Uncompressed 8K video editing",
+                  "Virtual machine hosting",
+                  "External OS boot drives"
+            ]
+      },
+      {
+            name: "Rugged External SSD",
+            desc: "Features a heavy-duty, shock-resistant outer shell (usually silicone or metal) that protects the SSD from drops, dust, water, and extreme weather.",
+            features: [
+                  "Shock-resistant silicone protective bumper",
+                  "IP65/IP67 water and dust ingress rating",
+                  "Reinforced internal PCB mounts"
+            ],
+            pros: [
+                  "Protects data from outdoor drops and rain",
+                  "Extremely durable for travel",
+                  "Reliable in harsh field conditions"
+            ],
+            cons: [
+                  "Bulkier and heavier design",
+                  "Higher cost than standard SSDs"
+            ],
+            users: [
+                  "Travel photographers",
+                  "Outdoor field technicians",
+                  "Adventure travelers"
+            ],
+            apps: [
+                  "Outdoor photoshoot backups",
+                  "Field data logging",
+                  "Travel storage"
+            ]
+      },
+      {
+            name: "Portable External SSD",
+            desc: "A pocket-sized external solid-state drive that balances speed and size, making it easy to carry in pocket folders or laptop bags.",
+            features: [
+                  "Ultra-compact physical designs",
+                  "Lightweight aluminum chassis shell",
+                  "USB bus power capability"
+            ],
+            pros: [
+                  "Extremely easy to carry and pack",
+                  "Draws power from the host computer",
+                  "Sturdy, shock-safe casing"
+            ],
+            cons: [
+                  "Easy to misplace due to small size",
+                  "Short cable lengths"
+            ],
+            users: [
+                  "Business travelers",
+                  "Students",
+                  "Remote workers"
+            ],
+            apps: [
+                  "Daily file transfers",
+                  "Portable presentations",
+                  "Laptop travel extension"
+            ]
+      }
+    ],
       architecture: {
         description: "Mounts NAND flash memory chips, SSD flash controller, DRAM cache (on premium models), and a SATA/NVMe-to-USB bridge controller on a compact PCB.",
         hotspots: [
@@ -1131,23 +3492,287 @@ const TECH_DATABASE = {
       ],
       oldVsNew: "Legacy network cards had slow 10Mbps speeds and occupied huge slots on motherboards. Modern adapters are integrated directly on motherboards, support 2.5Gbps speeds, and handle wireless Wi-Fi connections via tiny M.2 cards.",
       types: [
-        {
-          name: "Wired Ethernet Adapter (NIC)",
-          desc: "Adapter housing an RJ-45 jack, sending data over copper twisted-pair cables.",
-          pros: ["Zero wireless interference", "Lowest latency", "Maximum speed reliability"],
-          cons: ["Requires physical cabling", "Not portable for mobile devices"],
-          users: ["Desktop PC gamers", "Server administrators"],
-          apps: ["Competitive gaming", "Server racks"]
-        },
-        {
-          name: "Wireless Wi-Fi Adapter",
-          desc: "Adapter utilizing antennas to connect to networks over radio frequencies.",
-          pros: ["No cabling needed", "Easy setup"],
-          cons: ["Prone to radio interference", "Higher latency than wired"],
-          users: ["Laptop users", "Home PC owners"],
-          apps: ["Wireless web browsing", "Mobile computing"]
-        }
-      ],
+      {
+            name: "Ethernet Adapter",
+            desc: "A wired network interface controller that uses an RJ-45 port to establish a direct, physical cable connection to local networks.",
+            features: [
+                  "RJ-45 physical ethernet port",
+                  "Wired physical media access control (MAC)",
+                  "Integrated magnetic isolation modules"
+            ],
+            pros: [
+                  "Highly stable, reliable network speeds",
+                  "Low connection latency",
+                  "Free from wireless signal drops"
+            ],
+            cons: [
+                  "Requires running physical network cables",
+                  "Restricts movement"
+            ],
+            users: [
+                  "Desktop PC users",
+                  "Gamers",
+                  "Corporate office desks"
+            ],
+            apps: [
+                  "Workplace network connections",
+                  "Online gaming",
+                  "Server terminal management"
+            ]
+      },
+      {
+            name: "PCIe Network Adapter",
+            desc: "An expansion card that plugs directly into a computer motherboard's PCIe slot, offering high-speed network connections.",
+            features: [
+                  "PCI Express motherboard interface connector",
+                  "Dedicated network controller chipset",
+                  "External antenna or RJ-45 ports"
+            ],
+            pros: [
+                  "Uses direct motherboard bus lanes for speed",
+                  "Excellent heat dissipation with metal heatsinks",
+                  "Free up external USB ports"
+            ],
+            cons: [
+                  "Requires opening the computer case to install",
+                  "Not compatible with laptops"
+            ],
+            users: [
+                  "Desktop PC builders",
+                  "Power users",
+                  "Workstation operators"
+            ],
+            apps: [
+                  "High-performance desktop PCs",
+                  "Home server builds",
+                  "Network intensive workstations"
+            ]
+      },
+      {
+            name: "USB Network Adapter",
+            desc: "A compact dongle that plugs into a USB port, providing an ethernet port or wireless network connection instantly.",
+            features: [
+                  "Standard USB Type-A or Type-C connector",
+                  "Compact dongle design",
+                  "Plug-and-play driver firmware"
+            ],
+            pros: [
+                  "Easy, driverless plug-and-play installation",
+                  "Works on both laptops and desktops",
+                  "Saves time on hardware upgrades"
+            ],
+            cons: [
+                  "Slightly higher latency than internal PCIe cards",
+                  "Protrudes from the USB port"
+            ],
+            users: [
+                  "Thin laptop users lacking ethernet ports",
+                  "Students",
+                  "General office workers"
+            ],
+            apps: [
+                  "Adding ethernet to thin laptops",
+                  "Quick network repairs",
+                  "Travel networking setups"
+            ]
+      },
+      {
+            name: "Wireless Network Adapter",
+            desc: "Enables a computer to connect to wireless local area networks (Wi-Fi) using radio frequency signals, removing cable runs.",
+            features: [
+                  "Wireless radio transceiver chips",
+                  "External or internal antenna arrays",
+                  "Wi-Fi standard protocol support"
+            ],
+            pros: [
+                  "No physical network cable clutter",
+                  "Allows computer mobility within range",
+                  "Easy connection to home routers"
+            ],
+            cons: [
+                  "Prone to wireless interference and signal blocks",
+                  "Slightly higher latency than ethernet"
+            ],
+            users: [
+                  "Home office users",
+                  "Laptop users",
+                  "Casual web browsers"
+            ],
+            apps: [
+                  "Home Wi-Fi internet access",
+                  "Wireless desktop setups",
+                  "Mobile computer networking"
+            ]
+      },
+      {
+            name: "Wi-Fi Adapter",
+            desc: "A specialized wireless network adapter designed specifically to connect to local Wi-Fi router networks using RF signals.",
+            features: [
+                  "Wi-Fi frequency band support (2.4GHz/5GHz)",
+                  "Wireless security encryption modules (WPA3)",
+                  "Standard Wi-Fi antennas"
+            ],
+            pros: [
+                  "Easy wireless connection to home routers",
+                  "Keeps the computer desk cable-free",
+                  "Standard wireless standard support"
+            ],
+            cons: [
+                  "Speeds drop as distance from the router increases",
+                  "Susceptible to walls blocking signals"
+            ],
+            users: [
+                  "Home PC users",
+                  "Students",
+                  "Remote workers"
+            ],
+            apps: [
+                  "Home wireless internet access",
+                  "Desktop Wi-Fi upgrades",
+                  "Travel laptop networking"
+            ]
+      },
+      {
+            name: "Bluetooth Adapter",
+            desc: "A small USB transceiver that adds Bluetooth wireless support to PCs, letting them connect to wireless peripherals.",
+            features: [
+                  "Bluetooth transceiver radio antenna",
+                  "USB interface port connector",
+                  "Short-range wireless pairing firmware"
+            ],
+            pros: [
+                  "Connects mice, keyboards, and headphones wirelessly",
+                  "Tiny, low-profile design",
+                  "Saves port space"
+            ],
+            cons: [
+                  "Limited to short distances (typically 10 meters)",
+                  "Low data speeds compared to Wi-Fi"
+            ],
+            users: [
+                  "Desktop PC users lacking built-in Bluetooth",
+                  "Peripheral users",
+                  "Music fans"
+            ],
+            apps: [
+                  "Connecting wireless headphones",
+                  "Wireless mouse/keyboard pairing",
+                  "Mobile phone file sharing"
+            ]
+      },
+      {
+            name: "Dual Band Adapter",
+            desc: "A Wi-Fi network adapter that can connect to both the 2.4GHz and 5GHz wireless frequency bands, letting users select the best channel.",
+            features: [
+                  "Dual frequency radio transmitters (2.4GHz & 5GHz)",
+                  "Dynamic frequency band switching",
+                  "High-speed wireless channel support"
+            ],
+            pros: [
+                  "Connects to faster 5GHz bands to avoid clutter",
+                  "Maintains compatibility with long-range 2.4GHz",
+                  "Less signal congestion"
+            ],
+            cons: [
+                  "Higher cost than single-band adapters",
+                  "5GHz band has a shorter physical range"
+            ],
+            users: [
+                  "Online gamers",
+                  "Video streamers",
+                  "Smart home managers"
+            ],
+            apps: [
+                  "High-definition video streaming",
+                  "Online gaming setups",
+                  "Congested apartment Wi-Fi"
+            ]
+      },
+      {
+            name: "Gigabit Ethernet Adapter",
+            desc: "A wired ethernet adapter designed to handle data transfer rates up to 1,000 Megabits per second (1 Gbps) over copper network cables.",
+            features: [
+                  "10/100/1000 Mbps auto-negotiation",
+                  "RJ-45 network port connector",
+                  "PCIe or USB 3.0 interface bus"
+            ],
+            pros: [
+                  "Blazing fast local file transfer speeds",
+                  "Stablest connection for video calls",
+                  "Low local network latency"
+            ],
+            cons: [
+                  "Requires Gigabit network routers and Cat5e/6 cables",
+                  "Wired cable constraints"
+            ],
+            users: [
+                  "Office professionals",
+                  "Gamers",
+                  "NAS storage users"
+            ],
+            apps: [
+                  "Fast local file backups",
+                  "High-definition video streaming",
+                  "Workplace network connections"
+            ]
+      },
+      {
+            name: "10 Gigabit Ethernet Adapter",
+            desc: "A high-performance network adapter capable of handling network speeds up to 10,000 Megabits per second (10 Gbps) over copper or fiber.",
+            features: [
+                  "10 Gbps high-speed network controller",
+                  "Large passive metal heatsinks",
+                  "RJ-45 or SFP+ fiber ports"
+            ],
+            pros: [
+                  "Incredible network transfer speeds",
+                  "Drastically cuts down backup times for media servers",
+                  "Optimal for corporate servers"
+            ],
+            cons: [
+                  "Extremely expensive pricing",
+                  "High power consumption and heat output"
+            ],
+            users: [
+                  "Server administrators",
+                  "Enterprise networks",
+                  "Video production studios"
+            ],
+            apps: [
+                  "Enterprise servers",
+                  "Direct editing off high-speed NAS",
+                  "Data center networking"
+            ]
+      },
+      {
+            name: "Fiber Network Adapter",
+            desc: "A network adapter that uses optical fiber cables instead of copper wires, transmitting data as light pulses for speed and range.",
+            features: [
+                  "SFP+ optical transceiver ports",
+                  "Fiber optic light signal processors",
+                  "PCI Express motherboard bus interface"
+            ],
+            pros: [
+                  "Zero electromagnetic interference (EMI) problems",
+                  "Handles data transfers over extremely long distances",
+                  "Incredibly stable speeds"
+            ],
+            cons: [
+                  "Fragile optical fiber cables",
+                  "Requires specialized fiber switch infrastructure"
+            ],
+            users: [
+                  "Data centers",
+                  "Telecommunication companies",
+                  "High-security government offices"
+            ],
+            apps: [
+                  "Data center uplinks",
+                  "High-security networks",
+                  "Long-distance server linkages"
+            ]
+      }
+    ],
       architecture: {
         description: "Mounts an Ethernet PHY controller, MAC processor, M.2 or PCIe interface, and antenna terminals.",
         hotspots: [
@@ -1257,15 +3882,230 @@ const TECH_DATABASE = {
       ],
       oldVsNew: "Legacy 8MB drives took 10 seconds to transfer a single document. Modern USB 3.2 flash drives transfer a 5GB movie file in less than 20 seconds.",
       types: [
-        {
-          name: "USB 3.0 Flash Drive",
-          desc: "A standard thumb drive with a blue-colored USB Type-A connector block.",
-          pros: ["Extremely cheap", "Universal compatibility", "Tiny size"],
-          cons: ["Slower write speeds than external SSDs", "Easy to lose due to tiny size"],
-          users: ["Students", "IT workers", "General users"],
-          apps: ["Homework transfer", "Booting OS installers"]
-        }
-      ],
+      {
+            name: "USB 2.0 Flash Drive",
+            desc: "Utilizes the older USB 2.0 standard for data transfer. It is a highly compatible and budget-friendly choice for small documents.",
+            features: [
+                  "USB 2.0 interface bus controller",
+                  "Max theoretical bus speed of 480 Mbps",
+                  "Classic USB Type-A connector"
+            ],
+            pros: [
+                  "Extremely inexpensive pricing",
+                  "Universal compatibility with all legacy hardware",
+                  "Simple, reliable design"
+            ],
+            cons: [
+                  "Very slow read/write speeds (typically 10-25 MB/s)",
+                  "Slow transfers for large folders"
+            ],
+            users: [
+                  "Students",
+                  "Office workers",
+                  "Casual users storing text"
+            ],
+            apps: [
+                  "Word document transfers",
+                  "Print shop file deliveries",
+                  "Basic text backups"
+            ]
+      },
+      {
+            name: "USB 3.0 Flash Drive",
+            desc: "Utilizes the USB 3.0 standard (often marked by blue plastic inside the connector), offering speeds up to ten times faster than USB 2.0.",
+            features: [
+                  "USB 3.0 controller bridge chip",
+                  "High-speed USB Type-A connector (blue tab)",
+                  "Theoretical bus speed of 5 Gbps"
+            ],
+            pros: [
+                  "Fast data transfer speeds (typically 80-150 MB/s)",
+                  "Backwards compatible with USB 2.0 ports",
+                  "Great value for storage speed"
+            ],
+            cons: [
+                  "Higher cost than USB 2.0 drives",
+                  "Speeds throttle down on USB 2.0 ports"
+            ],
+            users: [
+                  "Office workers",
+                  "Students",
+                  "General computer owners"
+            ],
+            apps: [
+                  "Large document backups",
+                  "Photo album transfers",
+                  "HD movie file copying"
+            ]
+      },
+      {
+            name: "USB 3.1 Flash Drive",
+            desc: "An updated standard of USB 3.0, delivering faster transfer rates (up to 10 Gbps theoretical) for quick file management.",
+            features: [
+                  "USB 3.1 Gen 2 high-speed controller",
+                  "Advanced NAND flash memory modules",
+                  "USB Type-A physical connector"
+            ],
+            pros: [
+                  "Very fast transfer speeds (up to 300+ MB/s)",
+                  "Saves time on massive file backups",
+                  "Backward compatible with older ports"
+            ],
+            cons: [
+                  "Runs warm during continuous write tasks",
+                  "Requires USB 3.1 ports for maximum speed"
+            ],
+            users: [
+                  "Designers",
+                  "Photographers",
+                  "Tech enthusiasts"
+            ],
+            apps: [
+                  "Direct media file transfers",
+                  "Portable software suites",
+                  "Quick system image backups"
+            ]
+      },
+      {
+            name: "USB 3.2 Flash Drive",
+            desc: "Utilizes the high-speed USB 3.2 Gen 2x2 standard, delivering top-tier flash drive speeds for demanding power users.",
+            features: [
+                  "USB 3.2 Gen 2x2 flash controller",
+                  "High-density multi-channel NAND flash",
+                  "Ultra-fast controller bus"
+            ],
+            pros: [
+                  "Top-tier transfer speeds (up to 400+ MB/s)",
+                  "Excellent for transferring raw camera footage",
+                  "Durable build designs"
+            ],
+            cons: [
+                  "Premium pricing",
+                  "Only hits top speed on USB 3.2 Gen 2x2 ports"
+            ],
+            users: [
+                  "Videographers",
+                  "System builders",
+                  "Power users"
+            ],
+            apps: [
+                  "Direct raw photo backup",
+                  "Operating system installer creation",
+                  "Large database transfers"
+            ]
+      },
+      {
+            name: "USB-C Flash Drive",
+            desc: "Features a modern, symmetrical USB Type-C connector, allowing direct connection to smartphones, tablets, and modern laptops.",
+            features: [
+                  "Symmetrical USB Type-C physical connector",
+                  "OTG compatible internal controller",
+                  "Slim physical drive design"
+            ],
+            pros: [
+                  "Connects directly to phones, tablets, and thin laptops",
+                  "Reversible plug orientation",
+                  "High-speed data pathways"
+            ],
+            cons: [
+                  "Cannot connect to older USB Type-A ports without adapters"
+            ],
+            users: [
+                  "Modern laptop users",
+                  "Mobile phone creators",
+                  "Android tablet users"
+            ],
+            apps: [
+                  "Expanding smartphone storage",
+                  "Files sharing between phone and laptop",
+                  "Ultrabook database storage"
+            ]
+      },
+      {
+            name: "Dual Interface Flash Drive",
+            desc: "Features two physical connectors (usually USB-A on one end and USB-C on the other), making it easy to share files between legacy and modern devices.",
+            features: [
+                  "Dual connectors (USB Type-A and Type-C)",
+                  "Swivel or sliding protective cover",
+                  "Integrated OTG firmware"
+            ],
+            pros: [
+                  "Seamless file transfers between old and new systems",
+                  "No adapters or cables required",
+                  "Highly versatile travel storage"
+            ],
+            cons: [
+                  "Swivel hinges can wear out and loosen over time",
+                  "Slightly larger physical size"
+            ],
+            users: [
+                  "Cross-platform workers",
+                  "IT professionals",
+                  "Students"
+            ],
+            apps: [
+                  "Sharing files between old and new PCs",
+                  "Cross-platform data backups",
+                  "IT field diagnostics support"
+            ]
+      },
+      {
+            name: "OTG Flash Drive",
+            desc: "USB On-The-Go drives are built to connect directly to mobile phones and tablets, letting users read and write files without needing a PC.",
+            features: [
+                  "OTG class compliant controller",
+                  "Micro-USB or USB-C connector ports",
+                  "Low power consumption profiles"
+            ],
+            pros: [
+                  "Access and backup files directly on mobile phones",
+                  "No desktop computer required",
+                  "Expands mobile storage easily"
+            ],
+            cons: [
+                  "Not supported by older phone models",
+                  "Can drain mobile phone batteries quickly"
+            ],
+            users: [
+                  "Mobile phone photographers",
+                  "Smartphone power users",
+                  "Travelers"
+            ],
+            apps: [
+                  "Backing up phone photos on the go",
+                  "Playing movies on tablets",
+                  "Expanding mobile phone storage"
+            ]
+      },
+      {
+            name: "Secure/Encrypted Flash Drive",
+            desc: "Features built-in hardware-based encryption (typically AES 256-bit) to protect data, often requiring a password or physical keypad to unlock.",
+            features: [
+                  "AES 256-bit hardware encryption chip",
+                  "Built-in physical unlock keypad buttons",
+                  "Rugged secure epoxy potting"
+            ],
+            pros: [
+                  "Data remains protected if the drive is lost or stolen",
+                  "Hardware encryption runs independently of the host OS",
+                  "Immune to software keylogger attacks"
+            ],
+            cons: [
+                  "Very expensive pricing",
+                  "If you forget the PIN/password, the data is lost permanently"
+            ],
+            users: [
+                  "Government employees",
+                  "Corporate executives",
+                  "Security professionals"
+            ],
+            apps: [
+                  "Confidential document storage",
+                  "Secure key backups",
+                  "Sensitive business data travel"
+            ]
+      }
+    ],
       architecture: {
         description: "Contains a male USB connector plug, flash memory controller, oscillator, and a NAND flash memory chip on a single PCB.",
         hotspots: [

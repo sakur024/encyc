@@ -978,6 +978,35 @@
     if (device.sections && typeof device.sections === 'object' && !Array.isArray(device.sections)) {
       return device.sections;
     }
+
+    function getTypeIcon(typeName) {
+      const name = typeName.toLowerCase();
+      if (name.includes('mechanical')) return 'construction';
+      if (name.includes('optical')) return 'visibility';
+      if (name.includes('laser')) return 'flare';
+      if (name.includes('wireless') || name.includes('bluetooth')) return 'wifi';
+      if (name.includes('gaming')) return 'sports_esports';
+      if (name.includes('ergonomic') || name.includes('vertical')) return 'front_hand';
+      if (name.includes('trackball')) return 'lens';
+      if (name.includes('travel') || name.includes('portable')) return 'flight';
+      if (name.includes('membrane')) return 'layers';
+      if (name.includes('chiclet') || name.includes('scissor')) return 'keyboard';
+      if (name.includes('flexible')) return 'gesture';
+      if (name.includes('virtual')) return 'computer';
+      if (name.includes('inkjet') || name.includes('photo')) return 'photo';
+      if (name.includes('3d')) return '3d_rotation';
+      if (name.includes('plotter') || name.includes('all-in-one') || name.includes('led') || name.includes('thermal') || name.includes('dot matrix')) return 'print';
+      if (name.includes('analog') || name.includes('digital') || name.includes('flight stick') || name.includes('arcade') || name.includes('gamepad') || name.includes('hall effect')) return 'sports_esports';
+      if (name.includes('crt')) return 'tv';
+      if (name.includes('oled') || name.includes('qled') || name.includes('ips') || name.includes('tn') || name.includes('va') || name.includes('curved') || name.includes('ultrawide')) return 'monitor';
+      if (name.includes('stereo') || name.includes('bookshelf') || name.includes('computer') || name.includes('smart') || name.includes('soundbar') || name.includes('satellite')) return 'volume_up';
+      if (name.includes('surround') || name.includes('home theater') || name.includes('hi-fi') || name.includes('pa system')) return 'surround_sound';
+      if (name.includes('dlp') || name.includes('lcos') || name.includes('short throw') || name.includes('business')) return 'videocam';
+      if (name.includes('sata') || name.includes('nvme') || name.includes('thunderbolt') || name.includes('rugged') || name.includes('ssd')) return 'album';
+      if (name.includes('ethernet') || name.includes('pcie') || name.includes('network') || name.includes('wifi') || name.includes('gigabit') || name.includes('fiber')) return 'settings_ethernet';
+      if (name.includes('usb 2.0') || name.includes('usb 3.0') || name.includes('usb 3.1') || name.includes('usb 3.2') || name.includes('usb-c') || name.includes('otg') || name.includes('secure') || name.includes('encrypted')) return 'usb';
+      return 'settings';
+    }
     
     // Fallback: build the 22 sections dynamically from the flat seed database fields
     return {
@@ -1119,12 +1148,29 @@
           ${device.types && device.types.length ? `
             <div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
               ${device.types.map(t => `
-                <div class="p-6 bg-surface border border-outline-variant rounded-xl space-y-4 flex flex-col justify-between">
-                  <div class="space-y-3">
-                    <div>
-                      <h3 class="text-lg font-bold text-secondary">${t.name}</h3>
-                      <p class="text-xs text-on-surface-variant leading-relaxed mt-1">${t.desc}</p>
+                <div class="p-6 bg-surface border border-outline-variant rounded-xl space-y-4 flex flex-col justify-between hover:border-primary/30 transition-all shadow-md">
+                  <div class="space-y-4">
+                    <!-- Card Header with Icon -->
+                    <div class="flex items-center gap-3">
+                      <div class="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shrink-0">
+                        <span class="material-symbols-outlined text-lg">${getTypeIcon(t.name)}</span>
+                      </div>
+                      <div>
+                        <h3 class="text-base font-bold text-on-surface leading-tight">${t.name}</h3>
+                      </div>
                     </div>
+                    
+                    <p class="text-xs text-on-surface-variant leading-relaxed">${t.desc}</p>
+                    
+                    <!-- Key Features -->
+                    ${t.features && t.features.length ? `
+                      <div class="space-y-1.5 border-t border-outline-variant/20 pt-3">
+                        <span class="text-[10px] font-bold text-primary uppercase tracking-wider font-mono">Key Features</span>
+                        <ul class="space-y-1 text-xs text-on-surface-variant list-disc pl-4">
+                          ${t.features.map(f => `<li>${f}</li>`).join('')}
+                        </ul>
+                      </div>
+                    ` : ''}
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 border-t border-outline-variant/20 pt-3">
                       <!-- Pros -->
@@ -1158,7 +1204,7 @@
                   <div class="border-t border-outline-variant/30 pt-3 flex flex-col gap-3 mt-2">
                     ${t.users && t.users.length ? `
                       <div class="space-y-1">
-                        <span class="text-[9px] uppercase font-bold text-on-surface-variant tracking-wider font-mono">Target Audience</span>
+                        <span class="text-[9px] uppercase font-bold text-on-surface-variant tracking-wider font-mono">Common Users</span>
                         <div class="flex flex-wrap gap-1">
                           ${t.users.map(u => `<span class="bg-surface-container text-[10px] px-2 py-0.5 rounded border border-outline-variant/30">${u}</span>`).join('')}
                         </div>
@@ -1166,7 +1212,7 @@
                     ` : ''}
                     ${t.apps && t.apps.length ? `
                       <div class="space-y-1">
-                        <span class="text-[9px] uppercase font-bold text-on-surface-variant tracking-wider font-mono">Primary Applications</span>
+                        <span class="text-[9px] uppercase font-bold text-on-surface-variant tracking-wider font-mono">Common Uses</span>
                         <div class="flex flex-wrap gap-1">
                           ${t.apps.map(a => `<span class="bg-surface-container text-[10px] px-2 py-0.5 rounded border border-outline-variant/30">${a}</span>`).join('')}
                         </div>
@@ -6530,7 +6576,7 @@
           <form id="admin-login-form" class="space-y-4">
             <div class="space-y-1.5">
               <label class="text-[10px] font-bold uppercase text-on-surface-variant tracking-wider font-mono">Username</label>
-              <input type="text" id="login-username" class="w-full bg-background border border-outline-variant rounded-lg p-2.5 text-sm text-on-surface focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all" required placeholder="admin"/>
+              <input type="text" id="login-username" class="w-full bg-background border border-outline-variant rounded-lg p-2.5 text-sm text-on-surface focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all" required placeholder="Username"/>
             </div>
             
             <div class="space-y-1.5">
@@ -6542,10 +6588,6 @@
               <span class="material-symbols-outlined text-sm">login</span> Access Dashboard
             </button>
           </form>
-          
-          <div class="text-center text-[10px] text-on-surface-variant border-t border-outline-variant/30 pt-4">
-            Default local credentials: <span class="font-mono text-secondary">admin</span> / <span class="font-mono text-secondary">1234</span>
-          </div>
         </div>
       </main>
     `;
